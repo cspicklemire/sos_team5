@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import './App.css';
+import '../css/App.css';
 
 import Nav from './Nav';
 import Home from './Home';
@@ -27,7 +27,7 @@ async function getUserInfo() {
 
 function App() {
     const [email, setEmail] = useState('')
-    
+
     async function updateEmail() {
         const data = await getUserInfo()
         setEmail(data.email)
@@ -42,7 +42,7 @@ function App() {
         }
     },[])
 
-    
+
     return (
     <Router>
       <div className="App">
@@ -52,7 +52,7 @@ function App() {
           <Route path='/about' exact component={About} />
           <Route path='/contactus' exact component={ContactUs} />
         </Switch>
-        
+
       </div>
     </Router>
   );
