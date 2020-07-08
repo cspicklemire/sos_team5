@@ -1,0 +1,8 @@
+.player-comp {
+  background-color: green;
+  display: inline-block;
+  float: none;
+  margin: 15px 15px 0 0;
+  width: 200px;
+  height: 200px;
+}

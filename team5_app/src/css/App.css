@@ -5,30 +5,15 @@
   --trim-border-active: #FFCD00;
 }
 
-* {
+*  {
   margin: 0;
   padding: 0;
-  outline: none;
-}
-
-.App {
-  text-align: center;
-  color : white
+  outline: none
 }
 
 body {
+  background-color: white;
   margin-left: var(--left-spacing);
-}
-
-nav {
-  background-color: var(--trim-background);
-  height: 100%;
-  width: var(--left-spacing);
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
 }
 
 ul {
@@ -40,6 +25,21 @@ li {
   font-size: 30px;
 }
 
+a {
+  display: block;
+  color: white;
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  color: black;
+}
+
+.App {
+  text-align: center;
+  color : white
+}
 
 .GoogleLogin {
     height:75px;
@@ -47,8 +47,6 @@ li {
     position: absolute;
     bottom: 0;
     text-align: center;
-    
-
 }
 
 .button {
@@ -63,30 +61,7 @@ li {
   border-left: 1px solid #CCCCCC;
 }
 
-
-a {
-  display: block;
-  color: white;
-  width: 80%;
-  margin: auto;
-}
-
-.nav-logo {
-  margin-top: 25px;
-  width: 90%;
-}
-
-.nav-trim {
-  width: 93%;
-  height: 100%;
-  border-left: 1px solid var(--trim-border);
-  border-right: 1px solid var(--trim-border);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nav-links-active {
-  color: red;
-  border-left: 3px solid var(--trim-border-active);
-  border-right: 3px solid var(--trim-border-active);
+.page-margin {
+  padding-bottom: 50px;
+  margin: 20px 20px 20px 20px !important;
 }

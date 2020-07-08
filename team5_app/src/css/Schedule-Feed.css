@@ -1,0 +1,8 @@
+.schedule-feed {
+  white-space: nowrap;
+  display: inline-block;
+  background-color: green;
+  width: 20%;
+  height: 500px;
+  float: right;
+}
