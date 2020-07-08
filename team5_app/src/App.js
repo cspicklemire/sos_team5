@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import './App.css';
+import './css/App.css';
 
-import Nav from './Nav';
-import Home from './Home';
-import About from './About';
-import ContactUs from './ContactUs';
+import SponsorsBar from './components/Sponsors-Bar';
+import Nav from './components/Nav';
 
-
+import Home from './pages/Home';
+import Premium from './pages/Premium';
+import Schedule from './pages/Schedule';
+import Sponsors from './pages/Sponsors';
+import Players from './pages/Players';
+import Streams from './pages/Streams';
 
 async function getUserInfo() {
     let result
@@ -21,13 +24,9 @@ async function getUserInfo() {
     return result
 }
 
-
-
-
-
 function App() {
     const [email, setEmail] = useState('')
-    
+
     async function updateEmail() {
         const data = await getUserInfo()
         setEmail(data.email)
@@ -42,17 +41,21 @@ function App() {
         }
     },[])
 
-    
     return (
     <Router>
       <div className="App">
         <Nav email = { email }/>
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/about' exact component={About} />
-          <Route path='/contactus' exact component={ContactUs} />
-        </Switch>
-        
+        <SponsorsBar />
+        <div className="page-margin">
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/schedule' exact component={Schedule} />
+            <Route path='/premium' exact component={Premium} />
+            <Route path='/sponsors' exact component={Sponsors} />
+            <Route path='/players' exact component={Players} />
+            <Route path='/streams' exact component={Streams} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );

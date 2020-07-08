@@ -1,25 +1,21 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import logo from '../fever.png';
-import './App.css';
 import GoogleLogin from './GoogleLogin'
-function Nav(props){
-  const navStyle = {
-    textDecoration: 'none',
-    fontSize: '25px',
-    marginTop: '20px'
-  };
+import logo from '../img/fever.png';
+import '../css/Nav.css';
 
+function Nav(props){
   return (
     <nav className="nav-root">
-      
       <div className="nav-trim">
-      
         <ul className="nav-links">
           <NavLink to='/' exact> <img src={logo} className="nav-logo" alt="logo" /> </NavLink>
-          <NavLink style={navStyle} activeClassName='nav-links-active' to='/' exact> <li> Home </li> </NavLink>
-          <NavLink style={navStyle} activeClassName='nav-links-active' to='/about' exact> <li> About </li> </NavLink>
-          <NavLink style={navStyle} activeClassName='nav-links-active' to='/contactus' exact> <li> ContactUs </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/' exact> <li> Home </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/streams' exact> <li> Streams </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/schedule' exact> <li> Schedule </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/players' exact> <li> Players </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/premium' exact> <li> Premium </li> </NavLink>
+          <NavLink activeClassName='nav-links-active' to='/sponsors' exact> <li> Sponsors </li> </NavLink>
         </ul>
         <GoogleLogin email = { props.email } />
       </div>

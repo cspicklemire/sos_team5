@@ -1,0 +1,7 @@
+.news-feed {
+  display: inline-block;
+  background-color: green;
+  width: 77%;
+  white-space: nowrap;
+  height: 700px;
+}
