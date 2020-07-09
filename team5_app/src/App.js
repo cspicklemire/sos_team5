@@ -24,22 +24,63 @@ async function getUserInfo() {
     return result
 }
 
+
+async function findOrCreateUser( data ) {
+    let result
+    try {
+        const response = await fetch('/api/findorcreateuser', 
+                                { method: 'POST', 
+                                  headers: {'Content-Type': 'application/json'},  
+                                  body: JSON.stringify(data),
+                                })
+        result = await response.json()
+    }
+    catch(e) {
+        result = {error: e}
+    }
+    return result
+}
+
+
+    
 function App() {
     const [email, setEmail] = useState('')
-
-    async function updateEmail() {
-        const data = await getUserInfo()
-        setEmail(data.email)
-    }
-
-    useEffect(() => {
+    const [username, setUsername] = useState('')
+    const [modal, setModal] = useState('')
+    
+    useEffect( async () => {
         try {
-            updateEmail()
+            const data = await getUserInfo()
+            setEmail(data.email)
         }
         catch(error) {
-            console.log("Yikes!" + JSON.stringify(error))
+            console.log("Error: " + JSON.stringify(error))
         }
     },[])
+    
+    
+    async function PostUser( data ) {
+        try {
+            const result = await findOrCreateUser(data)
+            if (data.username) {
+                setUsername(data.username)
+            }
+            else {
+                setModal('true')
+            }
+        }
+        catch(error) {
+            console.log("Error: " + JSON.stringify(error))
+        }
+    }
+    
+    
+    if  (email && !username){
+        PostUser({email:email})
+        
+    }
+    
+    
 
     return (
     <Router>
@@ -58,7 +99,9 @@ function App() {
         </div>
       </div>
     </Router>
-  );
+  )
 }
 
 export default App;
+
+

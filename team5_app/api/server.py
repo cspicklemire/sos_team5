@@ -6,6 +6,9 @@ from authlib.client import OAuth2Session
 import google.oauth2.credentials
 import googleapiclient.discovery
 import secret
+from flask import Flask, request
+from flask_sqlalchemy import SQLAlchemy
+
 
 
 ACCESS_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token'
@@ -23,7 +26,9 @@ AUTH_STATE_KEY = 'auth_state'
 
 app = flask.Flask(__name__, static_folder='../build', static_url_path='/')
 app.secret_key = os.environ.get("FN_FLASK_SECRET_KEY", default=secret.FN_FLASK_SECRET_KEY)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userdata.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
 
 def is_logged_in():
@@ -51,6 +56,16 @@ def get_user_info():
 
     return oauth2_client.userinfo().get().execute()
 
+
+@app.route('/api/getuserinfo')
+def getUserInfoAPI():
+    try: 
+        data = {'email' : get_user_info().get("email")}
+    except:
+        data = {'error' : 'user not logged in'}
+    return data 
+
+
 def no_cache(view):
     @functools.wraps(view)
     def no_cache_impl(*args, **kwargs):
@@ -62,24 +77,6 @@ def no_cache(view):
 
     return functools.update_wrapper(no_cache_impl, view)
 
-@app.route('/api/getuserinfo')
-def getUserInfoAPI():
-    try: 
-        data = {'email' : get_user_info().get("email")}
-    except:
-        data = {'error' : 'user not logged in'}
-    return data 
-
-
-
-@app.route('/testlogin')
-def testlogin():
-    if is_logged_in():
-        user_info = get_user_info()
-        #Once we get database hooked up, this is where we add to database if no entry exists yet for this email
-        return '<div>You are currently logged in as ' + user_info['given_name'] + '<div><pre>' + json.dumps(user_info, indent=4) + "</pre>" + '<br>' + '<a href="/google/logout">Click here to logout</a>'
-    
-    return 'You are not currently logged in.' + '<a href="/google/login">Click here to login to google</a>'
 
 @app.route('/')
 @app.route('/index')
@@ -104,8 +101,6 @@ def login():
 @no_cache
 def google_auth_redirect():
     req_state = flask.request.args.get('state', default=None, type=None)
-    print ('\nreq_state is ' + req_state + '\n')
-    print ('\nflask session authkey is ' + flask.session[AUTH_STATE_KEY] + '\n')
     if req_state != flask.session[AUTH_STATE_KEY]:
         response = flask.make_response('Invalid state parameter', 401)
         return response
@@ -134,3 +129,37 @@ def logout():
     flask.session.pop(AUTH_STATE_KEY, None)
 
     return flask.redirect(BASE_URI, code=302)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '<User %r>' % self.email
+
+@app.route('/api/findorcreateuser', methods=['POST'])
+def createUser():
+    data = request.get_json()
+    email = data.get('email')
+
+    
+    registered = User.query.filter_by(email = email).first()
+    
+    if registered:
+        print("Registered! " + str(registered.username))
+        result = {'username' : registered.username}
+        return result
+    
+    if email:
+        user = User(username='', email=email)
+        db.session.add(user)
+        db.session.commit()
+        result = {'username' : ''}
+    else:
+        result = {'Error' : 'no email address provided'}
+        
+    return result
+
+

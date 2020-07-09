@@ -2,7 +2,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
 database = Flask(__name__)
-database.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+database.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userdata.db'
 database.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(database)
 
@@ -33,7 +33,7 @@ def createUser():
         db.session.add(user)
         db.session.commit()
     else:
-        result = "Ack!"
+        result = "Error: no email address provided"
         
     return result
     
