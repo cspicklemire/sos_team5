@@ -3,6 +3,7 @@
   --trim-border: #585858;
   --trim-background: #020d1c;
   --trim-border-active: #FFCD00;
+  --color-1: #c4c4c4;
 }
 
 *  {
@@ -12,7 +13,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: var(--color-1);
   margin-left: var(--left-spacing);
 }
 
@@ -26,10 +27,7 @@ li {
 }
 
 a {
-  display: block;
-  color: white;
-  width: 80%;
-  margin: auto;
+  
 }
 
 h1 {
@@ -38,7 +36,7 @@ h1 {
 
 .App {
   text-align: center;
-  color : white
+  color : white;
 }
 
 .GoogleLogin {

@@ -1,0 +1,12 @@
+.video-widget {
+  display: inline-block;
+  width: 176px;
+  height: 117px;
+  margin: 5px 20px 5px 20px;
+}
+
+.video-widget a div {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}

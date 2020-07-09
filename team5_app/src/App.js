@@ -11,6 +11,8 @@ import Schedule from './pages/Schedule';
 import Sponsors from './pages/Sponsors';
 import Players from './pages/Players';
 import Streams from './pages/Streams';
+import LiveStream from './pages/Stream_Live';
+
 
 async function getUserInfo() {
     let result
@@ -28,9 +30,9 @@ async function getUserInfo() {
 async function findOrCreateUser( data ) {
     let result
     try {
-        const response = await fetch('/api/findorcreateuser', 
-                                { method: 'POST', 
-                                  headers: {'Content-Type': 'application/json'},  
+        const response = await fetch('/api/findorcreateuser',
+                                { method: 'POST',
+                                  headers: {'Content-Type': 'application/json'},
                                   body: JSON.stringify(data),
                                 })
         result = await response.json()
@@ -42,12 +44,12 @@ async function findOrCreateUser( data ) {
 }
 
 
-    
+
 function App() {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [modal, setModal] = useState('')
-    
+
     useEffect( async () => {
         try {
             const data = await getUserInfo()
@@ -57,8 +59,8 @@ function App() {
             console.log("Error: " + JSON.stringify(error))
         }
     },[])
-    
-    
+
+
     async function PostUser( data ) {
         try {
             const result = await findOrCreateUser(data)
@@ -73,14 +75,13 @@ function App() {
             console.log("Error: " + JSON.stringify(error))
         }
     }
-    
-    
+
+
     if  (email && !username){
         PostUser({email:email})
-        
     }
-    
-    
+
+
 
     return (
     <Router>
@@ -95,6 +96,7 @@ function App() {
             <Route path='/sponsors' exact component={Sponsors} />
             <Route path='/players' exact component={Players} />
             <Route path='/streams' exact component={Streams} />
+            <Route path='/streams/:id' exact component={LiveStream} />
           </Switch>
         </div>
       </div>
@@ -103,5 +105,3 @@ function App() {
 }
 
 export default App;
-
-

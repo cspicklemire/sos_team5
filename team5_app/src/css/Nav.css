@@ -29,6 +29,13 @@ nav {
   marginTop: 20px;
 }
 
+.nav-links a {
+  display: block;
+  color: white;
+  width: 80%;
+  margin: auto;
+}
+
 .nav-links-active {
   color: red;
   border-left: 3px solid var(--trim-border-active);
