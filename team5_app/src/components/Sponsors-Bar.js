@@ -1,12 +1,16 @@
 import React from 'react';
+import logo from '../img/placeholder.png';
 import '../css/Sponsors-Bar.css';
-import logo from '../img/sponsor-icon.png';
 
 function SponsorsBar() {
   return (
     <div className='sponsor-background'>
       <div className='sponsor-background-2'>
-        <img src={logo} className="sponsor-logo" alt="sponsor" />
+        <img src={logo} className="sponsor-logo" alt="logo" />
+        <img src={logo} className="sponsor-logo" alt="logo" />
+        <img src={logo} className="sponsor-logo" alt="logo" />
+        <img src={logo} className="sponsor-logo" alt="logo" />
+        <img src={logo} className="sponsor-logo" alt="logo" />
       </div>
     </div>
   );
