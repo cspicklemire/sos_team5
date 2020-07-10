@@ -48,12 +48,12 @@ def build_credentials():
                 token_uri=ACCESS_TOKEN_URI)
 
 def get_user_info():
+    
     credentials = build_credentials()
 
     oauth2_client = googleapiclient.discovery.build(
                         'oauth2', 'v2',
                         credentials=credentials)
-
     return oauth2_client.userinfo().get().execute()
 
 
@@ -61,8 +61,18 @@ def get_user_info():
 def getUserInfoAPI():
     try: 
         data = {'email' : get_user_info().get("email")}
+        registered = User.query.filter_by(email = data['email']).first()
+        if registered:
+            data.update( {'username' : registered.username} )
+            return data
+        user = User(username = None, email=data['email'])
+        db.session.add(user)
+        db.session.commit()
+        data.update( {'username' : ''} )
     except:
         data = {'error' : 'user not logged in'}
+        print("Error")
+        
     return data 
 
 
@@ -138,28 +148,4 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.email
-
-@app.route('/api/findorcreateuser', methods=['POST'])
-def createUser():
-    data = request.get_json()
-    email = data.get('email')
-
-    
-    registered = User.query.filter_by(email = email).first()
-    
-    if registered:
-        print("Registered! " + str(registered.username))
-        result = {'username' : registered.username}
-        return result
-    
-    if email:
-        user = User(username='', email=email)
-        db.session.add(user)
-        db.session.commit()
-        result = {'username' : ''}
-    else:
-        result = {'Error' : 'no email address provided'}
-        
-    return result
-
 

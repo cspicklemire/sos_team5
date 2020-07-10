@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './css/App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import SponsorsBar from './components/Sponsors-Bar';
 import Nav from './components/Nav';
-
 import Home from './pages/Home';
 import Premium from './pages/Premium';
 import Schedule from './pages/Schedule';
@@ -26,62 +25,26 @@ async function getUserInfo() {
     return result
 }
 
-
-async function findOrCreateUser( data ) {
-    let result
-    try {
-        const response = await fetch('/api/findorcreateuser',
-                                { method: 'POST',
-                                  headers: {'Content-Type': 'application/json'},
-                                  body: JSON.stringify(data),
-                                })
-        result = await response.json()
-    }
-    catch(e) {
-        result = {error: e}
-    }
-    return result
-}
-
-
-
+    
 function App() {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
-    const [modal, setModal] = useState('')
 
-    useEffect( async () => {
-        try {
-            const data = await getUserInfo()
-            setEmail(data.email)
-        }
-        catch(error) {
-            console.log("Error: " + JSON.stringify(error))
-        }
+    useEffect( () => {
+    	async function updateEmail() {
+			try {
+				const data = await getUserInfo()
+				setEmail(data.email)
+				console.log("username is " + data.username)
+			}
+			catch(error) {
+				console.log("Error: " + JSON.stringify(error))
+			}    	
+    	}
+    	
+    	updateEmail()
     },[])
-
-
-    async function PostUser( data ) {
-        try {
-            const result = await findOrCreateUser(data)
-            if (data.username) {
-                setUsername(data.username)
-            }
-            else {
-                setModal('true')
-            }
-        }
-        catch(error) {
-            console.log("Error: " + JSON.stringify(error))
-        }
-    }
-
-
-    if  (email && !username){
-        PostUser({email:email})
-    }
-
-
+    
 
     return (
     <Router>

@@ -18,6 +18,8 @@
 .env.test.local
 .env.production.local
 /api/secret.py
+/api/userdata.db
+
 
 npm-debug.log*
 yarn-debug.log*

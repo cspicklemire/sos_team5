@@ -13,8 +13,8 @@ function GoogleLogin(props) {
 
     const signOutButton = (
         <div className = 'GoogleLogin'>
-            <span>You are currently logged in as <br /> {props.email}</span>
-            <a href="/google/logout">Logout</a>
+            <span>You are currently logged in as <br /> {props.email} <br /> </span>
+            <a href="/google/logout">Logout </a>
         </div>
         )
 
