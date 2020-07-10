@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from '../img/placeholder.png';
-import '../css/Sponsors-Bar.css';
 
 function SponsorsBar() {
   return (

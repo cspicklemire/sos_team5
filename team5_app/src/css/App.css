@@ -9,12 +9,13 @@
 *  {
   margin: 0;
   padding: 0;
-  outline: none
+  outline: none;
+  text-decoration: none !important;
 }
 
 body {
   background-color: var(--color-1);
-  margin-left: var(--left-spacing) !important;
+  margin-left: var(--left-spacing);
 }
 
 ul {

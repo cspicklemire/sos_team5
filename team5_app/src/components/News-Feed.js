@@ -1,6 +1,5 @@
 import React from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
-import '../css/News-Feed.css';
 
 function Slider() {
   return (

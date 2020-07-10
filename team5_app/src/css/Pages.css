@@ -1,7 +1,16 @@
+/* Premium */
 .premium-option {
   background-color: green;
   display: inline-block;
   margin-right: 40px;
   width: 300px;
   height: 600px;
+}
+
+
+/* Schedule */
+.schedule-page {
+  background-color: green;
+  width: 100%;
+  height: 650px;
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import GoogleLogin from './GoogleLogin'
 import logo from '../img/placeholder.png';
-import '../css/Nav.css';
 
 function Nav(props){
   return (

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
+import './css/Components.css';
+import './css/Pages.css';
 import SponsorsBar from './components/Sponsors-Bar';
 import Nav from './components/Nav';
 import Home from './pages/Home';
