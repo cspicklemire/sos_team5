@@ -56,6 +56,21 @@ def get_user_info():
                         credentials=credentials)
     return oauth2_client.userinfo().get().execute()
 
+@app.route('/api/updatestatus', methods=['POST'])
+def updateStatusAPI():
+    try:
+        current_user = User.query.filter_by(email = data['email']).first()
+        current_status = current_user.status
+        if current_status == "Premium":
+            current_user.status = "Free"
+        else:
+            current_user.status = "Premium"
+        db.session.commit()
+        data = {'status': current_user.status}
+    except:
+        data = {'error': 'Invalid user'}
+
+    return data
 
 @app.route('/api/getuserinfo')
 def getUserInfoAPI():
@@ -63,7 +78,8 @@ def getUserInfoAPI():
         data = {'email' : get_user_info().get("email")}
         registered = User.query.filter_by(email = data['email']).first()
         if registered:
-            data.update( {'username' : registered.username} )
+            data.update({'username' : registered.username})
+            data.update({'status': registered.status}) 
             return data
         user = User(username = None, email=data['email'])
         db.session.add(user)
@@ -145,7 +161,8 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    status = db.Column(db.String(120), unique=False, nullable = True)
 
     def __repr__(self):
-        return '<User %r>' % self.email
+        return '<User: Email-%r Status-%r>' % self.email % self.status
 

@@ -29,12 +29,14 @@ async function getUserInfo() {
 function App() {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
+    const [status, setStatus] = useState('')
 
     useEffect( () => {
     	async function updateEmail() {
 			try {
 				const data = await getUserInfo()
-				setEmail(data.email)
+        setEmail(data.email)
+        setStatus("Free")
 				console.log("username is " + data.username)
 			}
 			catch(error) {
