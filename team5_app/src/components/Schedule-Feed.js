@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/Schedule-Feed.css';
 
 function Slider() {
   return (

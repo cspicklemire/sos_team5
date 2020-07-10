@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/Video-Slider.css';
 import Video from './Video';
 
 function Slider() {

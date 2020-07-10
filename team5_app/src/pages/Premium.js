@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/Premium.css';
 
 function Premium() {
   return (

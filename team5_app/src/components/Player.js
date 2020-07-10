@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../css/Player-Comp.css';
+
 
 function Player(props) {
   const [player, setPlayer] = useState('')
@@ -12,8 +12,8 @@ function Player(props) {
 
   return (
     <div className='player-comp'>
-      <h1> { `../img/players/${player.image}` } </h1>
-      <img source={ `../img/players/${player.image}` } className="player-logo" alt="player" />
+      <h1> { `/img/players/${player.image}` } </h1>
+      <img src={ `/img/players/${player.image}` } className="player-logo" alt="player" />
     </div>
   );
 }

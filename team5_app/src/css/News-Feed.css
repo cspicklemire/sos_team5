@@ -1,7 +1,0 @@
-.news-feed {
-  float: left;
-  display: inline-block;
-  background-color: var(--trim-background);
-  padding: 5px 5px 5px 5px;
-  width: 700px;
-}
