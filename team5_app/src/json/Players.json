@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Victoria Vivians",
+    "image": "victoriavivians.jpg",
+    "position": "Guard",
+    "height": "6-1",
+    "bio": "She provides the Fever with size, strength and maturity in the backcourt and has been voted the country’s top shooting guard in 2018",
+    "weight": "183 lbs",
+    "born": "November 17, 1994",
+    "highschool": "Scott Central (Carthage, Miss./Forest, Miss.)",
+    "college": "Mississippi State ‘18"
+  },
+  {
+    "name": "Erica Wheeler",
+    "image": "victoriavivians.jpg",
+    "position": "Guard",
+    "height": "Height: ",
+    "bio": "Having completed four WNBA seasons, Erica Wheeler established herself as a starter and regular contributor with the Fever",
+    "weight": "143 lbs ",
+    "born": "May 2, 1991",
+    "highschool": "Parkway Academy (Miramar, Fla.)",
+    "college": "Rutgers ‘13"
+  }
+]

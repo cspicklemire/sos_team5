@@ -14,7 +14,7 @@
 
 body {
   background-color: var(--color-1);
-  margin-left: var(--left-spacing);
+  margin-left: var(--left-spacing) !important;
 }
 
 ul {
@@ -27,7 +27,7 @@ li {
 }
 
 a {
-  
+
 }
 
 h1 {
