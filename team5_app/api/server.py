@@ -81,7 +81,7 @@ def getUserInfoAPI():
             data.update({'username' : registered.username})
             data.update({'status': registered.status}) 
             return data
-        user = User(username = None, email=data['email'])
+        user = User(username = None, email=data['email'], status = "Free")
         db.session.add(user)
         db.session.commit()
         data.update( {'username' : ''} )
