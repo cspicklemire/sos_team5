@@ -10,7 +10,6 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 
 
-
 ACCESS_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token'
 AUTHORIZATION_URL = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent'
 
@@ -148,4 +147,5 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.email
+
 

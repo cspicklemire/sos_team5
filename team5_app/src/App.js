@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import './css/Components.css';
 import './css/Pages.css';
+
 import SponsorsBar from './components/Sponsors-Bar';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Premium from './pages/Premium';
-import Schedule from './pages/Schedule';
 import Sponsors from './pages/Sponsors';
 import Players from './pages/Players';
 import Streams from './pages/Streams';
@@ -56,7 +57,6 @@ function App() {
         <div className="page-margin">
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/schedule' exact component={Schedule} />
             <Route path='/premium' exact component={Premium} />
             <Route path='/sponsors' exact component={Sponsors} />
             <Route path='/players' exact component={Players} />

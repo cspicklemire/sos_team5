@@ -1,7 +1,8 @@
 [
   {
     "name": "Victoria Vivians",
-    "image": "victoriavivians.jpg",
+    "number": "35",
+    "image": "VictoriaVivians.jpg",
     "position": "Guard",
     "height": "6-1",
     "bio": "She provides the Fever with size, strength and maturity in the backcourt and has been voted the country’s top shooting guard in 2018",
@@ -12,13 +13,98 @@
   },
   {
     "name": "Erica Wheeler",
-    "image": "victoriavivians.jpg",
+    "number": "17",
+    "image": "EricaWheeler.jpg",
     "position": "Guard",
-    "height": "Height: ",
+    "height": "5-7",
     "bio": "Having completed four WNBA seasons, Erica Wheeler established herself as a starter and regular contributor with the Fever",
     "weight": "143 lbs ",
     "born": "May 2, 1991",
     "highschool": "Parkway Academy (Miramar, Fla.)",
     "college": "Rutgers ‘13"
+  },
+  {
+    "name": "Kelsey Mitchell",
+    "number": "0",
+    "image": "KelseyMitchell.jpg",
+    "position": "Guard",
+    "height": "5-8",
+    "bio": "A left-handed, dynamic scorer with a high-powered scorer’s mentality and is the most heralded player ever to come out of Ohio State",
+    "weight": "160 lbs",
+    "born": "November 12, 1995",
+    "highschool": "Princeton (Cincinnati, Ohio)",
+    "college": "Ohio State ‘18"
+  },
+  {
+    "name": "Tiffany Mitchell",
+    "number": "25",
+    "image": "TiffanyMitchell.jpg",
+    "position": "Guard",
+    "height": "5-9",
+    "bio": "Mitchell had immediate impact with the Fever, including a game-high 18 points in her rookie debut against Dallas and she has set a franchise record with 42 consecutive made free throws",
+    "weight": "152 lbs",
+    "born": "September 23, 1994",
+    "highschool": "Providence Day School (Charlotte, N.C.)",
+    "college": "South Carolina ‘16"
+  },
+  {
+    "name": "Teaira McCowan",
+    "number": "15",
+    "image": "TeairaMcCowan.jpg",
+    "position": "Center",
+    "height": "6-7",
+    "bio": "She guided the Bulldogs to four consecutive NCAA Tournament berths, including back-to-back appearances in the national championship game in 2017 and 2018",
+    "weight": "239 lbs",
+    "born": "September 28, 1996",
+    "highschool": "Brenham (Brenham, Texas)",
+    "college": "Mississippi State ‘19"
+  },
+  {
+    "name": "Stephanie Mavunga",
+    "number": "23",
+    "image": "StephanieMavunga.jpg",
+    "position": "Forward",
+    "height": "6-3",
+    "bio": "A three-time all-league performer in the Big Ten and ACC, she was the third Indiana Miss Basketball to enter Fever training camp",
+    "weight": "205 lbs",
+    "born": "February 24, 1995",
+    "highschool": "Brownsburg (Brownsburg, Ind.)",
+    "college": "Ohio State ‘18"
+  },
+  {
+    "name": "Candice Dupree",
+    "number": "4",
+    "image": "CandiceDupree.jpg",
+    "position": "Forward",
+    "height": "6-2",
+    "bio": "She left Phoenix with her 34 double-digit rebounding games, the most in franchise history, including three of the top four single-game rebounding efforts in club history",
+    "weight": "178 lbs",
+    "born": "August 16, 1984",
+    "highschool": "Paul R. Wharton (Tampa, Fla.)",
+    "college": "Temple ’06"
+  },
+  {
+    "name": "Kennedy Burke",
+    "number": "2",
+    "image": "KennedyBurke.jpg",
+    "position": "Guard",
+    "height": "6-1",
+    "bio": "She helped guide the Bruins to four straight NCAA Tournament appearances, reaching the Elite Eight in 2017-18",
+    "weight": "182 lbs",
+    "born": "February 14, 1997",
+    "highschool": "Sierra Canyon (Chatsworth, California)",
+    "college": "UCLA ‘19"
+  },
+  {
+    "name": "Natalie Achonwa",
+    "number": "11",
+    "image": "NatalieAchonwa.jpg",
+    "position": "Center",
+    "height": "6-3",
+    "bio": "She helped Canada to gold medals at the FIBA Americas Championship and she made a second Olympics appearance with Canada during the 2016 Olympics in Rio de Janeiro, Brazil",
+    "weight": "190 lbs",
+    "born": "November 22, 1992",
+    "highschool": "St. Mary’s Catholic (Hamilton, Ontario)",
+    "college": "Notre Dame ‘14"
   }
 ]

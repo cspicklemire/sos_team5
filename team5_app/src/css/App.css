@@ -1,9 +1,9 @@
 :root {
   --left-spacing: 260px;
   --trim-border: #585858;
-  --trim-background: #020d1c;
   --trim-border-active: #FFCD00;
   --color-1: #c4c4c4;
+  --color-2: #020d1c;
 }
 
 *  {
@@ -27,17 +27,12 @@ li {
   font-size: 30px;
 }
 
-a {
-
-}
-
 h1 {
   color: black;
 }
 
 .App {
   text-align: center;
-  color : white;
 }
 
 .GoogleLogin {

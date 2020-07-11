@@ -3,8 +3,12 @@ import {NavLink} from 'react-router-dom';
 
 function Video( props ) {
   return (
-    <div className='video-widget'>
-        <NavLink to={`/streams/${props.id}`}> <div></div> </NavLink>
+    <div className='video'>
+      <div className='video-widget'>
+        <NavLink to={`/streams/${props.id}`}> <div className='video-component'></div> </NavLink>
+      </div>
+      <div className='video-description'>
+      </div>
     </div>
   );
 }
