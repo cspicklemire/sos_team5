@@ -3,17 +3,18 @@ import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
-import './css/Components.css';
 import './css/Pages.css';
+import './css/Components.css';
 
-import SponsorsBar from './components/Sponsors-Bar';
+import TopBar from './components/TopBar';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Premium from './pages/Premium';
 import Sponsors from './pages/Sponsors';
 import Players from './pages/Players';
-import Streams from './pages/Streams';
-import LiveStream from './pages/Stream_Live';
+import Timeline from './pages/Timeline';
+import Stream from './pages/VideoLive';
+import Video from './pages/Video';
 
 
 async function getUserInfo() {
@@ -55,15 +56,16 @@ function App() {
     <Router>
       <div className="App">
         <Nav email = { email }/>
-        <SponsorsBar />
+        <TopBar />
         <div className="page-margin">
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/premium' exact component={Premium} />
             <Route path='/sponsors' exact component={Sponsors} />
             <Route path='/players' exact component={Players} />
-            <Route path='/streams' exact component={Streams} />
-            <Route path='/streams/:id' exact component={LiveStream} />
+            <Route path='/timeline' exact component={Timeline} />
+            <Route path='/timeline/:id' exact component={Video} />
+            <Route path='/streams/:id' exact component={Stream} />
           </Switch>
         </div>
       </div>

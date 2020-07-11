@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StreamLive( {match} ) {
+function VideoLive( {match} ) {
   function handleSubmit(e) {
     e.preventDefault()
     console.log('submit');
@@ -36,4 +36,4 @@ function StreamLive( {match} ) {
   );
 }
 
-export default StreamLive;
+export default VideoLive;

@@ -5,9 +5,10 @@ function Video( props ) {
   return (
     <div className='video'>
       <div className='video-widget'>
-        <NavLink to={`/timeline/${props.id}`}> <div className='video-component'></div> </NavLink>
+        <NavLink to={`/streams/${props.id}`}> <div className='video-component stream-component'></div> </NavLink>
       </div>
       <div className='video-description'>
+
       </div>
     </div>
   );

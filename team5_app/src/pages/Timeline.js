@@ -1,7 +1,7 @@
 import React from 'react';
 import Video from '../components/Video.js';
 
-function Streams() {
+function Timeline() {
   return (
     <div className='stream-page'>
       <Video id='1' />
@@ -20,4 +20,4 @@ function Streams() {
   );
 }
 
-export default Streams;
+export default Timeline;

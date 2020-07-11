@@ -1,12 +1,11 @@
 import React from 'react';
-import Google_Sign_In from '../img/Google_Sign_In.png'
 
 function GoogleLogin(props) {
 
     const signInButton = (
         <div className = 'GoogleLogin'>
             <a href="/google/login">
-            <img src = {Google_Sign_In} alt = 'Google Login' width = "200" height = "50"></img>
+            <img src = {'/img/Google_Sign_In.png'} alt = 'Google Login' width = "200" height = "50"></img>
             </a>
         </div>
         )
