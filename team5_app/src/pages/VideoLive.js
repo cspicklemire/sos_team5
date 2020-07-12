@@ -43,7 +43,7 @@ function VideoLive( props ) {
       
       <div className='live-stream-chat'>
         <div className='live-stream-chat-log'>
-            { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<p/></span>))}
+            { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<br/></span>))}
         </div>
         <div className='live-stream-chat-input'>
                  <input name="chatText" value = {chatText} 
