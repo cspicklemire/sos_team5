@@ -8,6 +8,7 @@ import googleapiclient.discovery
 import secret
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_socketio import SocketIO, emit
 
 
 ACCESS_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token'
@@ -28,7 +29,7 @@ app.secret_key = os.environ.get("FN_FLASK_SECRET_KEY", default=secret.FN_FLASK_S
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userdata.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
+socketio = SocketIO(app, manage_session=False, cors_allowed_origins='*')
 
 def is_logged_in():
     return True if AUTH_TOKEN_KEY in flask.session else False
@@ -166,3 +167,23 @@ class User(db.Model):
         return '<User: Email-%r Status-%r>' % self.email % self.status
 
 
+@socketio.on('connect')
+def test_connect():
+    print("We got a connection.")
+    emit('my_response', {'data': 'Connected'})
+
+@socketio.on('message')
+def got_message(data):
+    print("We got a message:" + str(data) + " sending back out to all subscribers")
+    emit('message', data, broadcast=True)
+
+@socketio.on_error()
+def chat_error_handler(e):
+    print('An error has occurred on: ' + str(e))
+
+@socketio.on_error_default
+def error_handler(e):
+    print('A general error has occurred: ' + str(e))
+    
+if __name__ == '__main__':
+    socketio.run(app, debug=True)

@@ -15,6 +15,8 @@ import Players from './pages/Players';
 import Timeline from './pages/Timeline';
 import Stream from './pages/VideoLive';
 import Video from './pages/Video';
+import config from './config'
+import * as io from 'socket.io-client'
 
 
 async function getUserInfo() {
@@ -51,6 +53,7 @@ function App() {
     	updateEmail()
     },[])
 
+    let socket = io(config.socket_io_server)
 
     return (
     <Router>
@@ -65,7 +68,8 @@ function App() {
             <Route path='/players' exact component={Players} />
             <Route path='/timeline' exact component={Timeline} />
             <Route path='/timeline/:id' exact component={Video} />
-            <Route path='/streams/:id' exact component={Stream} />
+            <Route path='/streams/:id' exact render={ ({match}) => <Stream match = {match} email = { email } socket = { socket } />} />
+            
           </Switch>
         </div>
       </div>
