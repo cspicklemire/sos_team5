@@ -10,6 +10,8 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, emit
 from dotenv import load_dotenv
+load_dotenv('.prodenv')
+load_dotenv('.flaskenv')
 
 
 ACCESS_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token'
@@ -26,7 +28,6 @@ AUTH_TOKEN_KEY = 'auth_token'
 AUTH_STATE_KEY = 'auth_state'
 
 
-load_dotenv('.flaskenv')
 app = flask.Flask(__name__, static_folder='../build', static_url_path='/')
 app.secret_key = os.environ.get("FN_FLASK_SECRET_KEY", default=secret.FN_FLASK_SECRET_KEY)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userdata.db'
@@ -189,4 +190,4 @@ def error_handler(e):
     print('A general error has occurred: ' + str(e))
     
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, host = '0.0.0.0', debug=True)
