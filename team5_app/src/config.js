@@ -3,7 +3,7 @@ const dev = {
 }
 
 const prod = {
-	socket_io_server: "http://some.other.com"
+	socket_io_server: "http://ec2-3-18-105-26.us-east-2.compute.amazonaws.com:5000/"
 }
 
 const config = process.env.REACT_APP_STAGE === 'production'
