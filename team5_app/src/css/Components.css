@@ -36,7 +36,7 @@ nav {
   margin: auto;
 }
 
-.nav-links a:hover {
+.nav-links .nav-links-option:hover {
   transform: scale(1.5);
   color: yellow;
 }
@@ -48,24 +48,10 @@ nav {
 }
 
 
-/* News-Feed */
-.news-feed {
-  background-color: var(--color-2);
-  padding: 5px 5px 5px 5px;
-  width: 100%;
-}
-
-.news-feed-comp {
-  float: left;
-  display: inline-block;
-  width: 700px;
-  height: 1000px;
-}
-
-
 /* Player */
 .player-comp {
-  background-color: green;
+  background-color: var(--color-2);
+  padding: 5px;
   display: inline-block;
   margin: 15px 15px 0 0;
   overflow: auto;
@@ -161,30 +147,87 @@ nav {
 }
 
 /* Premium-Comp */
-.Premium-Comp {
+.premium-comp {
   vertical-align: top;
   display: inline-block;
   margin: 5px 30px 0 0;
   padding: 5px;
   background-color: var(--color-2);
   width: 400px;
-  height: 800px;
 }
 
-.Premium-Comp div {
+.premium-comp div {
   background-color: white;
   width: 100%;
   height: 100%;
 }
 
+.premium-title {
+  background-color: red;
+  font-size: 25px;
+  padding: 20px 0 20px 0;
+  margin: 0;
+}
+
+.premium-details {
+  padding: 0;
+  background-color: white;
+}
+
+.premium-details li {
+  background-color: #e5e5e5;
+  font-size: 15px;
+  padding: 20px 0 20px 0;
+  margin: 5px 0 5px 0;
+}
+
+.premium-background {
+  background-color: #c6c5c5 !important;
+}
+
+.premium-price {
+  background-color: #c6c5c5 !important;
+  font-size: 20px !important;
+  margin: 0 !important;
+}
+
+.premium-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 
 /* Home Video */
-.home-video {
+.home-page-video {
+  white-space: normal;
+  vertical-align: top;
   display: inline-block;
-  background-color: green;
   width: 50%;
-  height: 1000px;
+  min-width: 600px;
 }
+
+
+/* News-Feed */
+.news-feed-comp {
+  display: inline-block;
+  width: 50%;
+  max-width: 700px;
+  min-width: 600px;
+}
+
+.news-feed {
+  background-color: var(--color-2);
+  padding: 5px 5px 5px 5px;
+  width: 100%;
+}
+
 
 /* Stream */
 .stream-component {

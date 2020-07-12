@@ -7,18 +7,16 @@ function Player(props) {
   }
 
   return (
-    <div className='Premium-Comp'>
-      <div>
-        <h1> { props.data.package } </h1>
-
-        <ul>
+    <div className='premium-comp'>
+      <div className='premium-background'>
+        <h1 className='premium-title'> {props.data.package} </h1>
+        <ul className='premium-details'>
+          <li className='premium-price'> { `${props.data.price} / ${props.data.length}` } </li>
           {props.data.benefits.map( (benefits, index) => {
             return <li> {benefits} </li>
           })}
         </ul>
-
-        <h1> { props.data.price } </h1>
-        <button onClick={button_pressed}> Subscribe </button>
+        <button className='premium-button' onClick={button_pressed}> Subscribe </button>
       </div>
     </div>
   );

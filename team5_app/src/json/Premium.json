@@ -1,20 +1,26 @@
 [
   {
-    "package": "Free",
+    "package": "Standard",
     "price": "$0.00",
+    "length": "lifetime",
     "benefits": [
       "Access to public streams",
-      "Automatic enrollment to the small raffle"
+      "Automatic enrollment to the small raffle",
+      "No enrollment to the big raffle",
+      "No exclusive fan chat rooms",
+      "No private interviews with players"
     ]
   },
   {
     "package": "Premium",
     "price": "$9.99",
+    "length": "monthly",
     "benefits": [
-      "All benefits of the free package",
+      "Access to public streams",
+      "Automatic enrollment to the small raffle",
+      "Automatic enrollment to the big raffle",
       "Exclusive fan chat rooms",
-      "Private interviews with players",
-      "Automatic enrollment to a raffle for a chance win a zoom call with a specific player or the entire team"
+      "Private interviews with players"
     ]
   }
 ]

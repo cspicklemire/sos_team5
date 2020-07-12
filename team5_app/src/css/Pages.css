@@ -1,4 +1,8 @@
 /* Premium */
+.premium-page {
+  white-space: nowrap;
+}
+
 .premium-option {
   background-color: green;
   display: inline-block;
@@ -63,4 +67,12 @@
 
 .live-stream-chat-text-submit {
   display: none;
+}
+
+.home-page {
+  white-space: nowrap;
+}
+
+.home-page-stream {
+  width: 100%;
 }

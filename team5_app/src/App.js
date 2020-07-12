@@ -13,7 +13,7 @@ import Premium from './pages/Premium';
 import Sponsors from './pages/Sponsors';
 import Players from './pages/Players';
 import Timeline from './pages/Timeline';
-import Stream from './pages/VideoLive';
+import Stream from './pages/Stream';
 import Video from './pages/Video';
 import config from './config'
 import * as io from 'socket.io-client'
@@ -69,7 +69,7 @@ function App() {
             <Route path='/timeline' exact component={Timeline} />
             <Route path='/timeline/:id' exact component={Video} />
             <Route path='/streams/:id' exact render={ ({match}) => <Stream match = {match} email = { email } socket = { socket } />} />
-            
+
           </Switch>
         </div>
       </div>

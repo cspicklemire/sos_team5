@@ -5,10 +5,10 @@ import Col from 'react-bootstrap/Col'
 
 
 
-function VideoLive( props ) {
+function Stream( props ) {
     const [messages, setMessages] = useState([])
 	const [chatText, setChatText] = useState('')
-	
+
     const gotMessage = (message) => {
         console.log("Message:" + JSON.stringify(message))
         setMessages([...messages, message])
@@ -24,7 +24,7 @@ function VideoLive( props ) {
 	const handleChange = (e) => {
 		setChatText(e.target.value)
 	}
-	
+
 	useEffect(() => {
 		props.socket.on('message', gotMessage)
 		return (() => {
@@ -32,21 +32,21 @@ function VideoLive( props ) {
 		})
 	},[props.socket, gotMessage])
 
-  
-  
+
+
     return (
     <div>
       <h1> { `Live Video Stream ${props.match.params.id}` } </h1>
       <div className='live-stream-video'>
       </div>
-      
-      
+
+
       <div className='live-stream-chat'>
         <div className='live-stream-chat-log'>
             { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<br/></span>))}
         </div>
         <div className='live-stream-chat-input'>
-                 <input name="chatText" value = {chatText} 
+                 <input name="chatText" value = {chatText}
            	     placeholder = "chat here"
            	     onChange = {handleChange}
                  onKeyDown = {(event) => postChat(event)}
@@ -57,4 +57,4 @@ function VideoLive( props ) {
   );
 }
 
-export default VideoLive;
+export default Stream;
