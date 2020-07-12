@@ -9,6 +9,7 @@ import secret
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, emit
+from dotenv import load_dotenv
 
 
 ACCESS_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token'
@@ -24,6 +25,8 @@ CLIENT_SECRET = os.environ.get("FN_CLIENT_SECRET", default=secret.FN_CLIENT_SECR
 AUTH_TOKEN_KEY = 'auth_token'
 AUTH_STATE_KEY = 'auth_state'
 
+
+load_dotenv('.flaskenv')
 app = flask.Flask(__name__, static_folder='../build', static_url_path='/')
 app.secret_key = os.environ.get("FN_FLASK_SECRET_KEY", default=secret.FN_FLASK_SECRET_KEY)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userdata.db'
