@@ -2,11 +2,11 @@ import React from 'react';
 import PremiumComp from '../components/Premium';
 import Data from '../json/Premium.json';
 
-function Premium() {
+function Premium( props ) {
   return (
     <div>
       {Data.map( (deals, index) => {
-        return <PremiumComp data={deals} key={index} />
+        return <PremiumComp setStatus = { props.setStatus } data={deals} key={index} />
       })}
     </div>
   );

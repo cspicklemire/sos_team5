@@ -41,8 +41,7 @@ function App() {
     	async function updateEmail() {
 			try {
 				const data = await getUserInfo()
-        setEmail(data.email)
-        setStatus("Free")
+                setEmail(data.email)
 				console.log("username is " + data.username)
 			}
 			catch(error) {
@@ -63,7 +62,7 @@ function App() {
         <div className="page-margin">
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/premium' exact component={Premium} />
+            <Route path='/premium' exact component={ () => <Premium setStatus = { setStatus } />} />         
             <Route path='/sponsors' exact component={Sponsors} />
             <Route path='/players' exact component={Players} />
             <Route path='/timeline' exact component={Timeline} />

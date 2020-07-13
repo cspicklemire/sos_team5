@@ -1,9 +1,27 @@
 import React from 'react';
 
-function Player(props) {
+ function Player(props) {
   function button_pressed(e) {
     e.preventDefault();
-    console.log( `${props.data.package} package button has been pressed` );
+    updateStatus( props.data.package )
+  }
+  
+  async function updateStatus( status ) {
+    let result
+    try{
+        const response = await fetch('/api/updatestatus', 
+                                    { method: 'POST', 
+                                      headers: {'Content-Type': 'application/json'},  
+                                      body: JSON.stringify({ status: status }),
+                                    })
+        result = await response.json()
+        props.setStatus(result.status)
+        console.log("status is " + result.status)
+      }
+      catch(e){
+          result = {error:e}
+      }
+      return result
   }
 
   return (

@@ -61,21 +61,20 @@ def get_user_info():
     return oauth2_client.userinfo().get().execute()
 
 @app.route('/api/updatestatus', methods=['POST'])
-def updateStatusAPI():
+def updateStatusAPI( ):
     try:
+        posted = request.get_json()
+        status = posted['status']
+        data = {'email' : get_user_info().get("email")}
+        email = data.get('email')
         current_user = User.query.filter_by(email = data['email']).first()
-        current_status = current_user.status
-        if current_status == "Premium":
-            current_user.status = "Free"
-        else:
-            current_user.status = "Premium"
+        current_user.status = status
         db.session.commit()
-        data = {'status': current_user.status}
+        result = {'status': current_user.status}
     except:
-        data = {'error': 'Invalid user'}
+        result = {'error': 'Invalid user'}
 
-    return data
-
+    return result
 @app.route('/api/getuserinfo')
 def getUserInfoAPI():
     try: 
@@ -85,7 +84,7 @@ def getUserInfoAPI():
             data.update({'username' : registered.username})
             data.update({'status': registered.status}) 
             return data
-        user = User(username = None, email=data['email'], status = "Free")
+        user = User(username = None, email=data['email'], status = "Standard")
         db.session.add(user)
         db.session.commit()
         data.update( {'username' : ''} )
