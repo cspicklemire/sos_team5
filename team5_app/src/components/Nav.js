@@ -14,7 +14,7 @@ function Nav(props){
           <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/premium' exact> <li> Premium </li> </NavLink>
           <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/sponsors' exact> <li> Sponsors </li> </NavLink>
         </ul>
-        <GoogleLogin email = { props.email } />
+        <GoogleLogin status = { props.status } email = { props.email } />
       </div>
     </nav>
   );

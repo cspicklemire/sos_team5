@@ -12,13 +12,12 @@ function GoogleLogin(props) {
 
     const signOutButton = (
         <div className = 'GoogleLogin'>
-            <span style = {{color:'white'}} >You are currently logged in as <br /> {props.email} <br /> </span>
+            <span style = {{color:'white'}} >You are currently logged in as <br /> {props.email} <br /> Account status: { props.status } <br /> </span>
             <a href="/google/logout"> 
                 <img src = {'/img/Google_Logout.png'} alt = 'Google Login' width = "75" height = "30"></img>
             </a>
         </div>
         )
-
     return (
         props.email ? signOutButton : signInButton
     )

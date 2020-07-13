@@ -42,7 +42,7 @@ function App() {
 			try {
 				const data = await getUserInfo()
                 setEmail(data.email)
-				console.log("username is " + data.username)
+                setStatus(data.status)
 			}
 			catch(error) {
 				console.log("Error: " + JSON.stringify(error))
@@ -57,7 +57,7 @@ function App() {
     return (
     <Router>
       <div className="App">
-        <Nav email = { email }/>
+        <Nav status = { status } email = { email }/>
         <TopBar />
         <div className="page-margin">
           <Switch>
