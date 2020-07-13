@@ -35,9 +35,16 @@ function Stream( props ) {
 
 
     return (
-    <div>
+    <div className='stream-page'>
       <h1> { `Live Video Stream ${props.match.params.id}` } </h1>
-      <div className='live-stream-video'>
+      <div className='video-page-wrapper stream-page-wrapper'>
+        <div className='video-page-background'>
+          <div className='video-page-background-2'>
+            <div className='video-page-background-3'>
+
+            </div>
+          </div>
+        </div>
       </div>
 
 
@@ -45,11 +52,12 @@ function Stream( props ) {
         <div className='live-stream-chat-log'>
             { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<br/></span>))}
         </div>
-        <div className='live-stream-chat-input'>
+        <div className='live-stream-chat-input-div'>
                  <input name="chatText" value = {chatText}
-           	     placeholder = "chat here"
-           	     onChange = {handleChange}
-                 onKeyDown = {(event) => postChat(event)}
+           	      placeholder = "chat here"
+                  className= 'live-stream-chat-input'
+           	      onChange = {handleChange}
+                  onKeyDown = {(event) => postChat(event)}
                  />
         </div>
       </div>

@@ -3,7 +3,7 @@ import Video from '../components/Video.js';
 
 function Timeline() {
   return (
-    <div className='stream-page'>
+    <div>
       <Video id='1' />
       <Video id='2' />
       <Video id='3' />
