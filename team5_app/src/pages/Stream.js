@@ -22,11 +22,9 @@ function Stream( props ) {
 	const handleChange = (e) => {
 		setChatText(e.target.value)
 	}
-
-	function launchModal() {
-	    console.log("in launch")
+	
+	function launchModal() { 
 	    if (!props.email) {
-	        console.log("setting flag")
 	        setLoginFlag(true)
 	    }
 	    if (props.email && !props.username) {
@@ -37,7 +35,6 @@ function Stream( props ) {
 	useEffect(() => {
 
 	    const gotMessage = (message) => {
-            console.log("Message: " + JSON.stringify(message))
             setMessages( m => [...m, message])
         }
 

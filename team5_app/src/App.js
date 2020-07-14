@@ -63,7 +63,7 @@ function App() {
         <div className="page-margin">
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/premium' exact component={ () => <Premium setStatus = { setStatus } />} />         
+            <Route path='/premium' exact component={ () => <Premium email = {email} setStatus = { setStatus } />} />         
             <Route path='/sponsors' exact component={Sponsors} />
             <Route path='/players' exact component={Players} />
             <Route path='/timeline' exact component={Timeline} />

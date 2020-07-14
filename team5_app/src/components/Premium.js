@@ -1,10 +1,17 @@
-import React from 'react';
+import LoginPopup from './LoginPopup'
+import React, { useState } from 'react'
 
 
 
 function Premium(props) {
- 
+
+
+    const [loginFlag, setLoginFlag] = useState(false)
+    
     function button_pressed(e) {
+        if (!props.email) {
+	        setLoginFlag(true)
+	    }
         e.preventDefault();
         updateStatus( props.data.package )
     }
@@ -29,6 +36,7 @@ function Premium(props) {
     return (
     <div className='premium-comp'>
       <div className='premium-background'>
+        <LoginPopup email = { props.email } loginFlag = { loginFlag } />
         <h1 className='premium-title'> {props.data.package} </h1>
         <ul className='premium-details'>
           <li className='premium-price'> { `${props.data.price} / ${props.data.length}` } </li>
