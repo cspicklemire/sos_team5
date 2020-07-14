@@ -1,30 +1,32 @@
 import React from 'react';
 
- function Player(props) {
-  function button_pressed(e) {
-    e.preventDefault();
-    updateStatus( props.data.package )
-  }
+
+
+function Premium(props) {
+ 
+    function button_pressed(e) {
+        e.preventDefault();
+        updateStatus( props.data.package )
+    }
   
-  async function updateStatus( status ) {
-    let result
-    try{
-        const response = await fetch('/api/updatestatus', 
+    async function updateStatus( status ) {
+        let result
+        try{
+            const response = await fetch('/api/updatestatus', 
                                     { method: 'POST', 
                                       headers: {'Content-Type': 'application/json'},  
                                       body: JSON.stringify({ status: status }),
                                     })
-        result = await response.json()
-        props.setStatus(result.status)
-        console.log("status is " + result.status)
-      }
-      catch(e){
-          result = {error:e}
-      }
-      return result
-  }
+            result = await response.json()
+            props.setStatus(result.status)
+        }
+        catch(e){
+            result = {error:e}
+        }
+        return result
+    }
 
-  return (
+    return (
     <div className='premium-comp'>
       <div className='premium-background'>
         <h1 className='premium-title'> {props.data.package} </h1>
@@ -40,4 +42,4 @@ import React from 'react';
   );
 }
 
-export default Player;
+export default Premium;

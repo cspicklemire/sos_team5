@@ -42,6 +42,7 @@ function App() {
 			try {
 				const data = await getUserInfo()
                 setEmail(data.email)
+                setUsername(data.username)
                 setStatus(data.status)
 			}
 			catch(error) {
@@ -67,7 +68,7 @@ function App() {
             <Route path='/players' exact component={Players} />
             <Route path='/timeline' exact component={Timeline} />
             <Route path='/timeline/:id' exact component={Video} />
-            <Route path='/streams/:id' exact render={ ({match}) => <Stream match = {match} email = { email } socket = { socket } />} />
+            <Route path='/streams/:id' exact render={ ({match}) => <Stream setUsername = { setUsername } match = {match} username = { username } email = { email } socket = { socket } />} />
 
           </Switch>
         </div>

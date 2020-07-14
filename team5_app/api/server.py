@@ -60,6 +60,25 @@ def get_user_info():
                         credentials=credentials)
     return oauth2_client.userinfo().get().execute()
 
+
+@app.route('/api/updateusername', methods=['POST'])
+def updateUsernameAPI( ):
+    try:
+        posted = request.get_json()
+        username = posted['username']
+        print("username is " + username)
+        data = {'email' : get_user_info().get("email")}
+        email = data.get('email')
+        current_user = User.query.filter_by(email = data['email']).first()
+        current_user.username = username
+        db.session.commit()
+        result = {'username': current_user.username}
+    except:
+        result = {'error': 'Invalid user'}
+
+    return result
+    
+    
 @app.route('/api/updatestatus', methods=['POST'])
 def updateStatusAPI( ):
     try:
@@ -75,6 +94,8 @@ def updateStatusAPI( ):
         result = {'error': 'Invalid user'}
 
     return result
+
+
 @app.route('/api/getuserinfo')
 def getUserInfoAPI():
     try: 
