@@ -31,8 +31,6 @@ function LoginPopup(props) {
         </Modal.Header>
         <Modal.Body>
             <br />
-            <br />
-            <br />
         	<GoogleLogin />
         </Modal.Body>
         <Modal.Footer>

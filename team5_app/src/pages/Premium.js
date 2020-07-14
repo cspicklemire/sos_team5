@@ -6,7 +6,7 @@ function Premium( props ) {
   return (
     <div>
       {Data.map( (deals, index) => {
-        return <PremiumComp setStatus = { props.setStatus } data={deals} key={index} />
+        return <PremiumComp email = { props.email }setStatus = { props.setStatus } data={deals} key={index} />
       })}
     </div>
   );
