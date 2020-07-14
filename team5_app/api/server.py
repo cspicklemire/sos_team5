@@ -61,6 +61,29 @@ def get_user_info():
     return oauth2_client.userinfo().get().execute()
 
 
+@app.route('/api/checkusername', methods=['POST'])
+def checkUsernameAPI( ):
+    try:
+        posted = request.get_json()
+        username = posted['username']
+        if (len(username) < 3):
+            result = {'available': False, 'message': 'Must have at least 3 characters'}
+            return result
+        if (len(username) > 20):
+            result = {'available': False, 'message': 'Must have at most 20 characters'}
+            return result
+        print("username is " + username)
+        duplicate = User.query.filter_by(username = username).first()
+        if duplicate:
+            result = {'available': False, 'message': 'This username is taken'}
+        else:
+            result = {'available': True, 'message': 'This username is available!'}
+    except:
+        result = {'error': 'Invalid user'}
+
+    return result
+
+
 @app.route('/api/updateusername', methods=['POST'])
 def updateUsernameAPI( ):
     try:

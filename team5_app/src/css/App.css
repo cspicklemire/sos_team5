@@ -37,9 +37,8 @@ h1 {
 
 .GoogleLogin {
     height:75px;
-    width: 92%;
-    position: absolute;
-    bottom: 0;
+    width: 100%;
+    position: relative;
     text-align: center;
 }
 

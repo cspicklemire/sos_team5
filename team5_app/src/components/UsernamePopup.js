@@ -7,6 +7,10 @@ function UsernamePopup(props) {
     
     const [name, setName] = useState("")
     const [show, setShow] = useState(false)
+    const [available, setAvailable] = useState(false)
+    const [message, setMessage] = useState('')
+    const [color, setColor] = useState('white')
+    
     
     async function updateUsername( username ) {
         let result
@@ -25,20 +29,44 @@ function UsernamePopup(props) {
         return result
     }
     
+    async function checkUsername( username ) {
+        let result
+        try{
+            const response = await fetch('/api/checkusername', 
+                                    { method: 'POST', 
+                                      headers: {'Content-Type': 'application/json'},  
+                                      body: JSON.stringify({ username: username }),
+                                    })
+            result = await response.json()
+            setAvailable(result.available)
+            if (result.available) {
+                setColor("#67eb8c")
+            }
+            else {
+                setColor("#eb6767")         
+            }
+            setMessage(result.message)
+        }
+        catch(e){
+            result = {error:e}
+        }
+        return result
+    }
+    
     function handleChange(e) {
-        e.preventDefault();
+        e.preventDefault()
+        checkUsername(e.target.value)
         setName(e.target.value)
     }
     
     function handleSave() {
-        console.log("in save")
         updateUsername ( name )
         setShow(false)
         props.usernameFlag = false     
         setName('')
+        setMessage('')
     }
     function handleClose() {
-        console.log("in close")
         setShow(false)
         props.usernameFlag = false  
         setName('')   
@@ -48,7 +76,6 @@ function UsernamePopup(props) {
     
     
     if (props.usernameFlag && !show && !props.username) {
-        console.log("showing")
     	handleShow()
     }
     
@@ -63,10 +90,11 @@ function UsernamePopup(props) {
         </Modal.Header>
         <Modal.Body>
         	<p> Please enter your username </p>
-        	<input value = { name } onChange = { handleChange } /> 
+        	<input value = { name } onChange = { handleChange } style = {{ backgroundColor: color }} /> 
+        	<span> { message } </span>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSave}>
+          <Button variant="primary" onClick={handleSave} disabled = {!available}>
             Save Username
           </Button>
           <Button variant="secondary" onClick={handleClose}>

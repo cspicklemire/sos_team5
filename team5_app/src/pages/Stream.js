@@ -9,10 +9,7 @@ function Stream( props ) {
 	const [loginFlag, setLoginFlag] = useState(false)
 	
 	
-    const gotMessage = (message) => {
-        console.log("Message:" + JSON.stringify(message))
-        setMessages([...messages, message])
-    }
+    
 
     const postChat = (event) => {
         if (event.key === 'Enter') {
@@ -37,16 +34,18 @@ function Stream( props ) {
 	}
 
 	useEffect(() => {
+	
+	    const gotMessage = (message) => {
+            console.log("Message: " + JSON.stringify(message))
+            setMessages( m => [...m, message])
+        }
+	
 		props.socket.on('message', gotMessage)
 		return (() => {
 			props.socket.removeListener('message', gotMessage)
 		})
-	},[props.socket, gotMessage])
-
+	},[props.socket]);
     
-    console.log("email is " + props.email)
-    
-
     return (
     <div className='stream-page'>
       <LoginPopup email = { props.email } loginFlag = { loginFlag } />
