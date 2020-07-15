@@ -119,10 +119,23 @@ nav {
   background-color: green;
 }
 
-.video-description {
+.video-bottom {
+  border: 1px solid black;
+  vertical-align: middle;
   height: 90px;
+  border-radius: 20px;
   background-color: white;
-  padding: 2px;
+  padding: 10px;
+  overflow: auto;
+}
+
+.video-title {
+  font-size: 23px;
+}
+
+.video-description {
+  color: #4a4a4a;
+  font-size: 20px;
 }
 
 .video-thumbnail {

@@ -1,17 +1,27 @@
 [
   {
-    "path": "clip1/highlight1"
+    "path": "clip1/highlight1",
+    "title": "Fever Vs Sparks",
+    "desc": "Indiana Fever does it again"
   },
   {
-    "path": "clip2/highlight2"
+    "path": "clip2/highlight2",
+    "title": "Fever Vs Sparks 2",
+    "desc": "Teamwork highlights"
   },
   {
-    "path": "clip3/highlight3"
+    "path": "clip3/highlight3",
+    "title": "Fever Vs Sparks 3",
+    "desc": "Best first half plays"
   },
   {
-    "path": "clip4/highlight4"
+    "path": "clip4/highlight4",
+    "title": "Fever Vs Sparks 4",
+    "desc": "Another turnover by the Fever"
   },
   {
-    "path": "clip5/highlight5"
+    "path": "clip5/highlight5",
+    "title": "Fever Vs Sparks 5",
+    "desc": "Intense close game"
   }
 ]

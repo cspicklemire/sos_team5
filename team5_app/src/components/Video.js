@@ -29,8 +29,9 @@ function Video( props ) {
           </div>
         </div>
       </div>
-      <div className='video-description'>
-
+      <div className='video-bottom'>
+        <h1 className='video-title'> {Data[props.id].title} </h1>
+        <h1 className='video-description'> {Data[props.id].desc} </h1>
       </div>
     </div>
   );
