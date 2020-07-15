@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import UsernamePopup from '../components/UsernamePopup'
 import LoginPopup from '../components/LoginPopup'
 import Data from '../json/Videos.json';
@@ -11,7 +11,8 @@ function Stream( props ) {
 	const [loginFlag, setLoginFlag] = useState(false)
     const [room, setRoom] = useState('Standard')
 	const [display, setDisplay] = useState('none')
-
+    const bottomRef = useRef(null)
+    
     function launchModal() { 
 	    if (!props.email) {
 	        setLoginFlag(true)
@@ -29,6 +30,9 @@ function Stream( props ) {
 
     const postChat = (event) => {
         if (event.key === 'Enter') {
+            if (event.target.value.length === 0) {
+                return
+            }
             props.socket.emit('message', {message: event.target.value, username: props.username, room: room})
 			setChatText('')
         }
@@ -45,6 +49,7 @@ function Stream( props ) {
 
 	    const gotMessage = (message) => {
             setMessages( m => [...m, message])
+            bottomRef.current.scrollIntoView({behavior: "smooth"})
         }
         props.socket.emit('join', { 'room': room, 'username' : props.username});
 		props.socket.on('message', gotMessage)
@@ -61,7 +66,7 @@ function Stream( props ) {
     return (
     <div className='stream-page'>
       <LoginPopup email = { props.email } loginFlag = { loginFlag } />
-      <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsername = { props.setUsername } />
+      <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
       <h1> { `Live Video Stream ${props.match.params.id}` } 
         <div style = {{ display: display}}>
             <span> You are currently viewing the {room} chat </span>
@@ -84,6 +89,7 @@ function Stream( props ) {
       <div className='live-stream-chat'>
         <div className='live-stream-chat-log'>
             { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<br/></span>))}
+            <span key={messages.length} ref={bottomRef} float="left" clear="both" />
         </div>
         <div className='live-stream-chat-input-div'>
                  <input name="chatText" value = { chatText }

@@ -68,7 +68,9 @@ function UsernamePopup(props) {
     }
     function handleClose() {
         setShow(false)
-        setName('')   
+        setName('') 
+        props.setUsernameFlag(false)
+        setMessage('')  
     }
 
     const handleShow = () => setShow(true)
