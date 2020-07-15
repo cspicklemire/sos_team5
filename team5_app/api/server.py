@@ -73,7 +73,7 @@ def checkUsernameAPI( ):
             result = {'available': False, 'message': 'Must have at most 20 characters'}
             return result
         print("username is " + username)
-        duplicate = User.query.filter_by(username = username).first()
+        duplicate = User.query.filter(User.username.ilike(username)).first()
         if duplicate:
             result = {'available': False, 'message': 'This username is taken'}
         else:
