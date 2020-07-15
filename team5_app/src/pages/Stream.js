@@ -12,8 +12,8 @@ function Stream( props ) {
     const [room, setRoom] = useState('Standard')
 	const [display, setDisplay] = useState('none')
     const bottomRef = useRef(null)
-    
-    function launchModal() { 
+
+    function launchModal() {
 	    if (!props.email) {
 	        setLoginFlag(true)
 	    }
@@ -21,7 +21,7 @@ function Stream( props ) {
 	        setUsernameFlag(true)
 	    }
 	}
-	
+
 	function changeRoom() {
         setRoom(oldRoom => (oldRoom == 'Standard') ? 'Premium' : 'Standard')
         setMessages([])
@@ -42,8 +42,8 @@ function Stream( props ) {
 	const handleChange = (e) => {
 		setChatText(e.target.value)
 	}
-	
-	
+
+
 
 	useEffect(() => {
 
@@ -62,19 +62,19 @@ function Stream( props ) {
     if (props.status === 'Premium' && display === 'none') {
         setDisplay('inline')
     }
-    
+
     return (
     <div className='stream-page'>
       <LoginPopup email = { props.email } loginFlag = { loginFlag } />
       <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
-      <h1> { `Live Video Stream ${props.match.params.id}` } 
+      <h1> { `Live Video Stream ${props.match.params.id}` }
         <div style = {{ display: display}}>
             <span> You are currently viewing the {room} chat </span>
             <Button variant="info" onClick = {changeRoom}>Switch Chat</Button>
         </div>
       </h1>
       <div className='video-page-wrapper stream-page-wrapper'>
-        <div className='video-page-background'>
+        <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
               <video className='video-page-mp4' controls autoplay>

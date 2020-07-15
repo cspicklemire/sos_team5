@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import Data from '../json/Videos.json';
 
 function Stream( props ) {
+  const [img, setImg] = useState(`/videos/${Data[props.id].path}.jpg`);
+
+  function toGIF() {
+    setImg(`/videos/${Data[props.id].path}.gif` );
+  }
+
+  function toJPG() {
+    setImg(`/videos/${Data[props.id].path}.jpg`)
+  }
+
   return (
     <div className='stream'>
       <div className='video'>
@@ -12,7 +22,10 @@ function Stream( props ) {
               <div className='video-page-background-3'>
                 <NavLink to={`/streams/${props.id}`}>
                   <div className='video-component stream-component'>
-                    <img src={ `/videos/${Data[props.id].path}.jpg` } className="video-thumbnail" alt="thumbnail" />
+                    <img src={ img }
+                      onMouseOver={ toGIF }
+                      onMouseOut={ toJPG }
+                      className="video-thumbnail" alt="thumbnail" />
                   </div>
                 </NavLink>
               </div>

@@ -6,7 +6,7 @@ function Video( {match} ) {
     <div>
       <h1> { `Video ${match.params.id}` } </h1>
       <div className='video-page-wrapper'>
-        <div className='video-page-background'>
+        <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
               <video className='video-page-mp4' controls>

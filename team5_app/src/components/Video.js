@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import Data from '../json/Videos.json';
 
 function Video( props ) {
+  const [img, setImg] = useState(`/videos/${Data[props.id].path}.jpg`);
+
+  function toGIF() {
+    setImg(`/videos/${Data[props.id].path}.gif` );
+  }
+
+  function toJPG() {
+    setImg(`/videos/${Data[props.id].path}.jpg`)
+  }
+
   return (
     <div className='video'>
       <div className='video-page-wrapper'>
@@ -10,7 +20,10 @@ function Video( props ) {
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
               <NavLink to={`/timeline/${props.id}`}>
-                <img src={ `/videos/${Data[props.id].path}.jpg` } className="video-thumbnail" alt="thumbnail" />
+                <img src={ img }
+                  onMouseOver={ toGIF }
+                  onMouseOut={ toJPG }
+                  className="video-thumbnail" alt="thumbnail" />
               </NavLink>
             </div>
           </div>
