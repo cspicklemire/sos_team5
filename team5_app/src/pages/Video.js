@@ -1,4 +1,5 @@
 import React from 'react';
+import Data from '../json/Videos.json';
 
 function Video( {match} ) {
   return (
@@ -8,7 +9,9 @@ function Video( {match} ) {
         <div className='video-page-background'>
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
-
+              <video className='video-page-mp4' controls>
+                <source src={ `/videos/${Data[match.params.id].path}.mp4` } className='video-page-mp4' type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>

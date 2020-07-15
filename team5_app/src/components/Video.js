@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import Data from '../json/Videos.json';
 
 function Video( props ) {
   return (
@@ -8,7 +9,9 @@ function Video( props ) {
         <div className='video-page-background'>
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
-              <NavLink to={`/timeline/${props.id}`}> <div className='video-component'></div> </NavLink>
+              <NavLink to={`/timeline/${props.id}`}>
+                <img src={ `/videos/${Data[props.id].path}.jpg` } className="video-thumbnail" alt="thumbnail" />
+              </NavLink>
             </div>
           </div>
         </div>
