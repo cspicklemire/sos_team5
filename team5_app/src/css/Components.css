@@ -10,6 +10,10 @@ nav {
   overflow-x: hidden;
 }
 
+.nav-root {
+  overflow: hidden;
+}
+
 .nav-logo {
   margin-top: 25px;
   width: 90%;
@@ -51,7 +55,7 @@ nav {
 /* Player */
 .player-comp {
   background-color: var(--color-2);
-  padding: 5px;
+  padding: 5px 5px 0 5px;
   display: inline-block;
   margin: 15px 15px 0 0;
   overflow: auto;
@@ -63,9 +67,14 @@ nav {
 }
 
 .player-bottom {
-  display: none;
+  /*display: none;*/
 }
 
+.player-bottom-background {
+  margin-top: 5px;
+  background-color: white;
+  padding-top: 5px;
+}
 
 /* Schedule-Feed */
 .schedule-feed {
