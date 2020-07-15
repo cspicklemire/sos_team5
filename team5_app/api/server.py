@@ -8,7 +8,7 @@ import googleapiclient.discovery
 import secret
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room, leave_room
 from dotenv import load_dotenv
 load_dotenv('.prodenv')
 load_dotenv('.flaskenv')
@@ -218,11 +218,27 @@ class User(db.Model):
 def test_connect():
     print("We got a connection.")
     emit('my_response', {'data': 'Connected'})
+    
+@socketio.on('join')
+def on_join(data):
+    username = data['username']
+    room = data['room']
+    join_room(room)
+    print(username + " has joined the " +room + "room")
+    
+
+@socketio.on('leave')
+def on_leave(data):
+    username = data['username']
+    room = data['room']
+    leave_room(room)
+    print(username + " has left the " +room + "room")
 
 @socketio.on('message')
 def got_message(data):
+    room = data['room']
     print("We got a message:" + str(data) + " sending back out to all subscribers")
-    emit('message', data, broadcast=True)
+    emit('message', data, room = room)
 
 @socketio.on_error()
 def chat_error_handler(e):

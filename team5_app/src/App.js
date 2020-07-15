@@ -68,7 +68,7 @@ function App() {
             <Route path='/players' exact component={Players} />
             <Route path='/timeline' exact component={Timeline} />
             <Route path='/timeline/:id' exact component={Video} />
-            <Route path='/streams/:id' exact render={ ({match}) => <Stream setUsername = { setUsername } match = {match} username = { username } email = { email } socket = { socket } />} />
+            <Route path='/streams/:id' exact render={ ({match}) => <Stream setUsername = { setUsername } match = {match} status = { status } username = { username } email = { email } socket = { socket } />} />
 
           </Switch>
         </div>
