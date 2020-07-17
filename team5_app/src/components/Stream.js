@@ -26,6 +26,7 @@ function Stream( props ) {
                       onMouseOver={ toGIF }
                       onMouseOut={ toJPG }
                       className="video-thumbnail" alt="thumbnail" />
+                    <h1 className='stream-live-text'> LIVE </h1>
                   </div>
                 </NavLink>
               </div>

@@ -257,6 +257,13 @@ nav {
   background-color: red;
 }
 
+.stream-live-text {
+  position: absolute;
+  text-shadow: 2px 2px black;
+  top: 0;
+  color: red;
+}
+
 /* Countdown */
 .countdown-body{
   text-align: center;
