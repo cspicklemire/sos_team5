@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import GoogleLogin from './GoogleLogin'
 
 function LoginPopup(props) {
@@ -10,7 +9,7 @@ function LoginPopup(props) {
     
     function handleClose() {
         setShow(false)
-        props.loginFlag = false  
+        props.setLoginFlag(false)  
     }
 
     const handleShow = () => setShow(true)

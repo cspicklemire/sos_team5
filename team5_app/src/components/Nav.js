@@ -14,6 +14,8 @@ function Nav(props){
           <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/players' exact> <li> Players </li> </NavLink>
           <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/premium' exact> <li> Premium </li> </NavLink>
           <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/sponsors' exact> <li> Sponsors </li> </NavLink>
+          <NavLink className='nav-links-option' activeClassName='nav-links-active' to='/upload' exact> <li> Upload </li> </NavLink>
+
         </ul>
         <br />
         <br />

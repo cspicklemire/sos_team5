@@ -3,6 +3,7 @@ import UsernamePopup from '../components/UsernamePopup'
 import LoginPopup from '../components/LoginPopup'
 import Data from '../json/Videos.json';
 import Button from 'react-bootstrap/Button'
+import DecibelMeter from '../components/DecibelMeter'
 
 function Stream( props ) {
     const [messages, setMessages] = useState([])
@@ -23,7 +24,7 @@ function Stream( props ) {
 	}
 
 	function changeRoom() {
-        setRoom(oldRoom => (oldRoom == 'Standard') ? 'Premium' : 'Standard')
+        setRoom(oldRoom => (oldRoom === 'Standard') ? 'Premium' : 'Standard')
         setMessages([])
         setChatText('')
 	}
@@ -65,7 +66,7 @@ function Stream( props ) {
 
     return (
     <div className='stream-page'>
-      <LoginPopup email = { props.email } loginFlag = { loginFlag } />
+      <LoginPopup email = { props.email } loginFlag = { loginFlag } setLoginFlag = { setLoginFlag }/>
       <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
       <h1> { `Live Video Stream ${props.match.params.id}` }
         <div style = {{ display: display}}>
@@ -100,6 +101,9 @@ function Stream( props ) {
                   onKeyDown = {(event) => postChat(event)}
                  />
         </div>
+      </div>
+      <div className = 'meter'>
+          <DecibelMeter /> 
       </div>
     </div>
   );
