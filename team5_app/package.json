@@ -15,6 +15,7 @@
     "helmet": "3.22.0",
     "knex": "0.20.13",
     "react": "^16.13.1",
+    "react-arrow": "^2.0.4",
     "react-bootstrap": "^1.2.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

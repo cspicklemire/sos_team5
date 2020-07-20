@@ -305,3 +305,9 @@ margin: 40px 0px 20px;
 .meter{
 	text-align: center;
 }
+
+.arrow {
+	position: absolute;
+	left:0 px;
+	top: -10 px;
+}

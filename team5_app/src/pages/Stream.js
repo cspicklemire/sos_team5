@@ -12,6 +12,7 @@ function Stream( props ) {
 	const [loginFlag, setLoginFlag] = useState(false)
     const [room, setRoom] = useState('Standard')
 	const [display, setDisplay] = useState('none')
+    const [angle, setAngle] = useState(0)
     const bottomRef = useRef(null)
 
     function launchModal() {
@@ -63,6 +64,16 @@ function Stream( props ) {
     if (props.status === 'Premium' && display === 'none') {
         setDisplay('inline')
     }
+    
+    useEffect(() => {
+    
+        function foo() {
+            setAngle(angle => angle + 1)
+        }
+    
+        let theInterval = setInterval(foo, 1000/60)
+        return (()=> clearInterval(theInterval))
+    },[])
 
     return (
     <div className='stream-page'>
@@ -78,7 +89,7 @@ function Stream( props ) {
         <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>
             <div className='video-page-background-3'>
-              <video className='video-page-mp4' controls autoplay>
+              <video className='video-page-mp4' controls autoPlay>
                 <source src={ `/videos/${Data[4].path}.mp4` } className='video-page-mp4' type="video/mp4" />
               </video>
             </div>
@@ -103,7 +114,7 @@ function Stream( props ) {
         </div>
       </div>
       <div className = 'meter'>
-          <DecibelMeter /> 
+          <DecibelMeter angle = { angle }/> 
       </div>
     </div>
   );
