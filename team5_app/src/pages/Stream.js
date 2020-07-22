@@ -35,7 +35,7 @@ function Stream( props ) {
             if (event.target.value.length === 0) {
                 return
             }
-            props.socket.emit('message', {message: event.target.value, username: props.username, room: room})
+            props.socket.emit('message', {message: event.target.value, username: props.username, room: room, time: Date.now()})
 			setChatText('')
         }
     }
@@ -45,12 +45,33 @@ function Stream( props ) {
 		setChatText(e.target.value)
 	}
 
-
+    function findAngle (messages) {
+        let time = Date.now()
+        let count = 0;
+        let message
+        for (message of messages) {
+            if ((message.time + 15000) > time) {
+                count++
+            }
+            if ((message.time + 10000) > time) {
+                count++
+            }
+            if ((message.time + 5000) > time) {
+                count++
+            }
+            if ((message.time + 2500) > time) {
+                count++
+            }
+        }
+        return count
+        
+    }
 
 	useEffect(() => {
 
 	    const gotMessage = (message) => {
             setMessages( m => [...m, message])
+
             bottomRef.current.scrollIntoView({behavior: "smooth"})
         }
         props.socket.emit('join', { 'room': room, 'username' : props.username});
@@ -68,12 +89,13 @@ function Stream( props ) {
     useEffect(() => {
     
         function foo() {
-            setAngle(angle => angle + 1)
+            let toSet = findAngle(messages)
+            setAngle(toSet)
         }
     
-        let theInterval = setInterval(foo, 1000/60)
+        let theInterval = setInterval(foo, 1000/10)
         return (()=> clearInterval(theInterval))
-    },[])
+    },[messages])
 
     return (
     <div className='stream-page'>
