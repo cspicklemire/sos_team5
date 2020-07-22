@@ -26,11 +26,11 @@ function Upload( props ) {
 	const [data, dispatch] = useReducer(
 	  reducer, { dropDepth: 0, inDropZone: false, fileList: [] }
 	)
-	
+
 	const handleClick = () => document.location.reload(true)
-	
+
   return (
-    <div>
+    <div className='basic-page'>
       <h1> Message/Video Upload </h1>
       <br />
       <br />

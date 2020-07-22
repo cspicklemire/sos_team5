@@ -1,54 +1,62 @@
 /* NAVIGATION BAR */
 nav {
-  background-color: var(--color-2);
-  height: 100%;
-  width: var(--left-spacing);
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-}
-
-.nav-root {
   overflow: hidden;
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  width: 100%;
+  background-color: var(--color-3);
+  height: 80px;
+  overflow: auto;
+  line-height: 80px;
 }
 
-.nav-logo {
-  margin-top: 25px;
-  width: 90%;
-}
-
-.nav-trim {
-  width: 93%;
+.nav-layer-2 {
+  white-space: nowrap;
+  max-width: 1230px;
+  width: 70%;
+  margin: 0 auto 0 auto;
   height: 100%;
-  border-left: 1px solid var(--trim-border);
-  border-right: 1px solid var(--trim-border);
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.nav-right {
+  display: inline-block;
+  float: right;
+}
+
+.nav-left {
+  display: inline-block;
+  float: left;
+}
+
+.nav-left h1 {
+  letter-spacing: 1px;
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  line-height: 80px;
+  float: left;
+}
+
+.nav-links {
+  margin: 0;
 }
 
 .nav-links a li {
-  font-size: 1.6em;
-  marginTop: 20px;
+  padding: 8px;
+  margin-right: 10px;
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a {
-  display: block;
   color: white;
-  width: 80%;
-  margin: auto;
-}
-
-.nav-links .nav-links-option:hover {
-  transform: scale(1.5);
-  color: yellow;
-}
-
-.nav-links-active {
-  color: red !important;
-  border-left: 3px solid var(--trim-border-active);
-  border-right: 3px solid var(--trim-border-active);
 }
 
 
@@ -62,8 +70,8 @@ nav {
 }
 
 .player-logo {
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
 }
 
 .player-bottom {
@@ -123,7 +131,6 @@ nav {
 /* Video */
 .video {
   display: inline-block;
-  margin: 10px 10px 50px 10px;
 }
 
 .video-component {
@@ -157,7 +164,7 @@ nav {
 }
 
 .video-page-background:hover:not(.video-page-hover) {
-  transform: scale(1.10);
+  /*transform: scale(1.10);*/
 }
 
 /* Premium-Comp */
@@ -230,10 +237,9 @@ nav {
 
 /* News-Feed */
 .news-feed-comp {
+  margin-top: 20px;
   display: inline-block;
-  width: 50%;
-  max-width: 700px;
-  min-width: 600px;
+  width: 450px;
 }
 
 .news-feed {
@@ -250,7 +256,7 @@ nav {
 }
 
 .stream-wrapper {
-  min-width: 560px;
+  min-width: 1500px;
 }
 
 .stream-component {
@@ -260,8 +266,10 @@ nav {
 .stream-live-text {
   position: absolute;
   text-shadow: 2px 2px black;
-  top: 0;
+  top: 5%;
+  left: 20%;
   color: red;
+  z-index: 2;
 }
 
 /* Countdown */

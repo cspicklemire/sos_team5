@@ -4,7 +4,7 @@ import Data from '../json/Sponsors.json';
 
 function Sponsors() {
   return (
-    <div className='sponsors-page'>
+    <div className='basic-page'>
       {Data.map( (object, index) => {
         return <Sponsor data={object} key={index} />
       })}

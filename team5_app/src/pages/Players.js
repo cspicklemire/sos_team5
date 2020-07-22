@@ -4,7 +4,7 @@ import Data from '../json/Players.json';
 
 function Players() {
   return (
-    <div className='player-page'>
+    <div className='basic-page'>
       {Data.map( (player, index) => {
         return <Player data={player} key={index} />
       })}

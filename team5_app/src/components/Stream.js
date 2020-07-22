@@ -17,7 +17,7 @@ function Stream( props ) {
     <div className='stream'>
       <div className='video'>
         <div className='video-page-wrapper stream-wrapper'>
-          <div className='video-page-background'>
+          <div className='video-page-background stream-page-background'>
             <div className='video-page-background-2'>
               <div className='video-page-background-3'>
                 <NavLink to={`/streams/${props.id}`}>
@@ -27,6 +27,7 @@ function Stream( props ) {
                       onMouseOut={ toJPG }
                       className="video-thumbnail" alt="thumbnail" />
                     <h1 className='stream-live-text'> LIVE </h1>
+                    <div className='stream-gradient'></div>
                   </div>
                 </NavLink>
               </div>

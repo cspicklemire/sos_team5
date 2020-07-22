@@ -1,9 +1,10 @@
 :root {
-  --left-spacing: 260px;
+  --page-margin: 0 auto 0 auto;
   --trim-border: #585858;
   --trim-border-active: #FFCD00;
-  --color-1: #c4c4c4;
+  --color-1: #ffffff; /*white*/
   --color-2: #020d1c;
+  --color-3: #bb0e23; /*red*/
 }
 
 *  {
@@ -15,7 +16,6 @@
 
 body {
   background-color: var(--color-1);
-  margin-left: var(--left-spacing);
 }
 
 ul {
@@ -23,7 +23,6 @@ ul {
 }
 
 li {
-  margin-top: 20px;
   font-size: 30px;
 }
 
@@ -55,6 +54,7 @@ h1 {
 }
 
 .page-margin {
-  padding-bottom: 50px;
-  margin: 20px 20px 20px 20px !important;
+  padding-bottom: 60px;
+  margin: var(--page-margin);
+  margin-top: 80px;
 }

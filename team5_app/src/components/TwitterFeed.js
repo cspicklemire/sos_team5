@@ -8,6 +8,7 @@ function TwitterFeed() {
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="IndianaFever"
+          theme="dark"
           options={{width: 700}}
         />
       </div>
