@@ -1,48 +1,52 @@
 import React from 'react';
 
 function CountDown(props) {
-    var deadline = new Date("jul 25, 2020 23:59:59").getTime();
+	const [days, setDays] = React.useState(0)
+	const [hours, setHours] = React.useState(0)
+	const [minutes, setMinutes] = React.useState(0)
+	const [seconds, setSeconds] = React.useState(0)
 
-    var x = setInterval(function() {
+    let deadline = new Date("jul 24, 2020 23:59:59").getTime();
+    let x = setInterval(function() {
 
-        var now = new Date().getTime();
-        var t = deadline - now;
-        var days = Math.floor(t / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-        var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((t % (1000 * 60)) / 1000);
-        document.getElementById("day").innerHTML =days ;
-        document.getElementById("hour").innerHTML =hours;
-        document.getElementById("minute").innerHTML = minutes;
-        document.getElementById("second").innerHTML =seconds;
+        let now = new Date().getTime();
+        let t = deadline - now;
+        console.log(t)
+        let d = Math.floor(t / (1000 * 60 * 60 * 24));
+        let h = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+        let m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        let s = Math.floor((t % (1000 * 60)) / 1000);
+        setDays(d)
+        setHours(h)
+        setMinutes(m)
+        setSeconds(s)
         if (t < 0) {
                 clearInterval(x);
-                document.getElementById("demo").innerHTML = "TIME UP";
-                document.getElementById("day").innerHTML ='0';
-                document.getElementById("hour").innerHTML ='0';
-                document.getElementById("minute").innerHTML ='0' ;
-                document.getElementById("second").innerHTML = '0'; }
+                setDays(d)
+        		setHours(h)
+        		setMinutes(m)
+        		setSeconds(s) }
     }, 1000);
     return(
        
         <div classname='clockdiv'>
    <div className = 'clockdiv-div'>
-       <span classname = 'clockdiv-div-span' class="days" id="day"></span>
+       <span classname = 'clockdiv-div-span' class="days" id="day">{days}</span>
        <div class='smalltext'>Days</div>
    </div>
    <div className = 'clockdiv-div'>
-       <span span classname = 'clockdiv-div-span' class="hours" id="hour"></span>
+       <span span classname = 'clockdiv-div-span' class="hours" id="hour">{hours}</span>
        <div class='smalltext'>Hours</div>
    </div>
    <div className = 'clockdiv-div'>
-       <span span classname = 'clockdiv-div-span'  class="minutes" id="minute"></span>
+       <span span classname = 'clockdiv-div-span'  class="minutes" id="minute">{minutes}</span>
        <div class='smalltext'>Minutes</div>
    </div>
    <div className = 'clockdiv-div'>
-       <span span classname = 'clockdiv-div-span' class="seconds" id="second"></span>
+       <span span classname = 'clockdiv-div-span' class="seconds" id="second">{seconds}</span>
        <div class='smalltext'>Seconds</div>
    </div>
-    <p id="demo"></p> 
+    <p id="demo">Until next live broadcast!</p> 
    </div>
 );
 }

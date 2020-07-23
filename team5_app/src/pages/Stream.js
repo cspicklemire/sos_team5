@@ -109,7 +109,7 @@ function Stream( props ) {
         </div>
       </h1>
       <div className='countdown'>
-        <CountDown> </CountDown>
+        <CountDown />
       </div>
       <div className='video-page-wrapper stream-page-wrapper'>
         <div className='video-page-background video-page-hover'>
