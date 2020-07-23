@@ -1,8 +1,7 @@
 import React from 'react';
 
 function CountDown(props) {
-    function createCountdown() {
-    var deadline = new Date("dec 31, 2017 15:37:25").getTime();
+    var deadline = new Date("jul 25, 2020 23:59:59").getTime();
 
     var x = setInterval(function() {
 
@@ -24,29 +23,28 @@ function CountDown(props) {
                 document.getElementById("minute").innerHTML ='0' ;
                 document.getElementById("second").innerHTML = '0'; }
     }, 1000);
-}
     return(
-       // <h1>Countdown Clock</h1>
-       <div classname='clockdiv'>
-       <div className = 'clockdiv-div'>
-           <span classname = 'clockdiv-div-span' class="days" id="day"></span>
-           <div class='smalltext'>Days</div>
-       </div>
-       <div className = 'clockdiv-div'>
-           <span span classname = 'clockdiv-div-span' class="hours" id="hour"></span>
-           <div class='smalltext'>Hours</div>
-       </div>
-       <div className = 'clockdiv-div'>
-           <span span classname = 'clockdiv-div-span'  class="minutes" id="minute"></span>
-           <div class='smalltext'>Minutes</div>
-       </div>
-       <div className = 'clockdiv-div'>
-           <span span classname = 'clockdiv-div-span' class="seconds" id="second"></span>
-           <div class='smalltext'>Seconds</div>
-       </div>
-        <p id="demo"></p> 
-       </div>
-    );
+       
+        <div classname='clockdiv'>
+   <div className = 'clockdiv-div'>
+       <span classname = 'clockdiv-div-span' class="days" id="day"></span>
+       <div class='smalltext'>Days</div>
+   </div>
+   <div className = 'clockdiv-div'>
+       <span span classname = 'clockdiv-div-span' class="hours" id="hour"></span>
+       <div class='smalltext'>Hours</div>
+   </div>
+   <div className = 'clockdiv-div'>
+       <span span classname = 'clockdiv-div-span'  class="minutes" id="minute"></span>
+       <div class='smalltext'>Minutes</div>
+   </div>
+   <div className = 'clockdiv-div'>
+       <span span classname = 'clockdiv-div-span' class="seconds" id="second"></span>
+       <div class='smalltext'>Seconds</div>
+   </div>
+    <p id="demo"></p> 
+   </div>
+);
 }
 
 export default CountDown

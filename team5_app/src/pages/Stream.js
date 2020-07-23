@@ -4,6 +4,7 @@ import LoginPopup from '../components/LoginPopup'
 import Data from '../json/Videos.json';
 import Button from 'react-bootstrap/Button'
 import DecibelMeter from '../components/DecibelMeter'
+import CountDown from '../components/Countdown';
 
 function Stream( props ) {
     const [messages, setMessages] = useState([])
@@ -107,6 +108,9 @@ function Stream( props ) {
             <Button variant="info" onClick = {changeRoom}>Switch Chat</Button>
         </div>
       </h1>
+      <div className='countdown'>
+        <CountDown> </CountDown>
+      </div>
       <div className='video-page-wrapper stream-page-wrapper'>
         <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>

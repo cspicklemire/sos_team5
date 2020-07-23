@@ -275,19 +275,19 @@ nav {
 /* Countdown */
 .countdown-body{
   text-align: center;
-  background: #00ECB9;
+  background: #041E42;
 font-family: sans-serif;
 font-weight: 100;
 }
 .countdown-title{
-color: #396;
+color:#FFCD00;
 font-weight: 100;
 font-size: 40px;
 margin: 40px 0px 20px;
 }
 .clockdiv{
   font-family: sans-serif;
-  color: #fff;
+  color: #FFCD00;
   display: inline-block;
   font-weight: 100;
   text-align: center;
@@ -296,18 +296,21 @@ margin: 40px 0px 20px;
 .clockdiv-div{
   padding: 10px;
   border-radius: 3px;
-  background: #00BF96;
+  background: #041E42;
+  color: #FFCD00;
   display: inline-block;
 }
 .clockdiv-div-span{
   padding: 15px;
   border-radius: 3px;
-  background: #00816A;
+  background: #041E42;
+  color: #FFCD00;
   display: inline-block;
 }
 .smalltext{
   padding-top: 5px;
   font-size: 16px;
+  color: white;
 }
 
 .meter{
