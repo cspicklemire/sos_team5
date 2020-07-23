@@ -6,7 +6,6 @@ import './css/App.css';
 import './css/Pages.css';
 import './css/Components.css';
 
-import TopBar from './components/TopBar';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Premium from './pages/Premium';
