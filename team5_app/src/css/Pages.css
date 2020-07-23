@@ -204,6 +204,6 @@
 .dropped-files li {
   color: #F6431C;
   padding: 3px;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
