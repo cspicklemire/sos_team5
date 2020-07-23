@@ -187,7 +187,8 @@ nav {
 }
 
 .premium-title {
-  background-color: red;
+  background-color: var(--color-3);
+  color: white;
   font-size: 25px;
   padding: 20px 0 20px 0;
   margin: 0;
