@@ -7,14 +7,13 @@ nav {
   width: 100%;
   background-color: var(--color-3);
   height: 80px;
-  overflow: auto;
-  line-height: 80px;
+
 }
 
 .nav-layer-2 {
   white-space: nowrap;
-  max-width: 1230px;
-  width: 70%;
+  line-height: 80px;
+  max-width: 1350px;
   margin: 0 auto 0 auto;
   height: 100%;
 }
@@ -22,6 +21,10 @@ nav {
 .nav-right {
   display: inline-block;
   float: right;
+}
+
+.nav-center {
+  display: inline-block;
 }
 
 .nav-left {
@@ -273,8 +276,11 @@ nav {
 }
 
 /* Countdown */
+
+
 .countdown-body{
-  text-align: center;
+  
+  float:right;
   background: #041E42;
 font-family: sans-serif;
 font-weight: 100;
@@ -299,6 +305,7 @@ margin: 40px 0px 20px;
   background: #041E42;
   color: #FFCD00;
   display: inline-block;
+
 }
 .clockdiv-div-span{
   padding: 15px;
@@ -315,6 +322,7 @@ margin: 40px 0px 20px;
 
 .meter{
 	text-align: center;
+	float:center
 }
 
 .arrow {
@@ -322,3 +330,9 @@ margin: 40px 0px 20px;
 	left:0 px;
 	top: -10 px;
 }
+
+.switch {
+	margin-right: -50 px
+
+}
+

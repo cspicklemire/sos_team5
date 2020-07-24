@@ -8,7 +8,8 @@
       "Automatic enrollment to the small raffle",
       "No enrollment to the big raffle",
       "No exclusive fan chat rooms",
-      "No private interviews with players"
+      "No private interviews with players",
+      "No Uploading Personal Messages"
     ]
   },
   {
@@ -20,7 +21,8 @@
       "Automatic enrollment to the small raffle",
       "Automatic enrollment to the big raffle",
       "Exclusive fan chat rooms",
-      "Private interviews with players"
+      "Private interviews with players",
+      "Uploading Personal Messages"
     ]
   }
 ]

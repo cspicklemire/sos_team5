@@ -5,6 +5,10 @@ import Data from '../json/Videos.json';
 import Button from 'react-bootstrap/Button'
 import DecibelMeter from '../components/DecibelMeter'
 import CountDown from '../components/Countdown';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 function Stream( props ) {
     const [messages, setMessages] = useState([])
@@ -103,14 +107,26 @@ function Stream( props ) {
       <LoginPopup email = { props.email } loginFlag = { loginFlag } setLoginFlag = { setLoginFlag }/>
       <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
       <h1> { `Live Video Stream ${props.match.params.id}` }
-        <div style = {{ display: display}}>
-            <span> You are currently viewing the {room} chat </span>
-            <Button variant="info" onClick = {changeRoom}>Switch Chat</Button>
-        </div>
       </h1>
-      <div className='countdown'>
-        <CountDown />
-      </div>
+      <Container> 
+         <Row>
+            <Col> 
+                <CountDown />
+            </Col>
+            <Col sm = {7} > 
+                <DecibelMeter angle = { angle }/> 
+            </Col>
+            <Col style = {{display : display}}>
+                <br />
+                <br />
+                <br/>
+                <p> You are currently viewing the {room} chat </p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <Button variant="info" onClick = {changeRoom}>Switch Chat</Button>
+            </Col>
+          </Row>
+        </Container>
+        
       <div className='video-page-wrapper stream-page-wrapper'>
         <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>
@@ -126,7 +142,7 @@ function Stream( props ) {
 
       <div className='live-stream-chat'>
         <div className='live-stream-chat-log'>
-            { messages.map((m,i) => (<span key={i}>{m.username + ':' + m.message}<br/></span>))}
+            { messages.map((m,i) => (<span key={i}>{m.username + ' : ' + m.message}<br/></span>))}
             <span key={messages.length} ref={bottomRef} float="left" clear="both" />
         </div>
         <div className='live-stream-chat-input-div'>
@@ -139,9 +155,7 @@ function Stream( props ) {
                  />
         </div>
       </div>
-      <div className = 'meter'>
-          <DecibelMeter angle = { angle }/> 
-      </div>
+      
     </div>
   );
 }

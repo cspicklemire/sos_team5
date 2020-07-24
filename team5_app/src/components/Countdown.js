@@ -11,7 +11,6 @@ function CountDown(props) {
 
         let now = new Date().getTime();
         let t = deadline - now;
-        console.log(t)
         let d = Math.floor(t / (1000 * 60 * 60 * 24));
         let h = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
         let m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
@@ -28,7 +27,9 @@ function CountDown(props) {
         		setSeconds(s) }
     }, 1000);
     return(
-       
+  <>
+    <br />
+    <br />
         <div classname='clockdiv'>
    <div className = 'clockdiv-div'>
        <span classname = 'clockdiv-div-span' class="days" id="day">{days}</span>
@@ -46,8 +47,9 @@ function CountDown(props) {
        <span span classname = 'clockdiv-div-span' class="seconds" id="second">{seconds}</span>
        <div class='smalltext'>Seconds</div>
    </div>
-    <p id="demo">Until next live broadcast!</p> 
+    <p id="demo" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Until next live broadcast!</p> 
    </div>
+ </>
 );
 }
 
