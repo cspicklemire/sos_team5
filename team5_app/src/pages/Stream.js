@@ -30,9 +30,14 @@ function Stream( props ) {
 	}
 
 	function changeRoom() {
+
         setRoom(oldRoom => (oldRoom === 'Standard') ? 'Premium' : 'Standard')
         setMessages([])
         setChatText('')
+        if (room === 'Standard') {
+            let message = { message: 'You have entered the Premium room', username: ' '}
+            setMessages([message])
+        }
 	}
 
     const postChat = (event) => {
@@ -106,7 +111,7 @@ function Stream( props ) {
     <div className='stream-page'>
       <LoginPopup email = { props.email } loginFlag = { loginFlag } setLoginFlag = { setLoginFlag }/>
       <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
-      <h1> { `Live Video Stream ${props.match.params.id}` }
+      <h1> { `Live Stream` }
       </h1>
       <Container> 
          <Row>
