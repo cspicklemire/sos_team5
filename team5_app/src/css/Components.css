@@ -241,6 +241,7 @@ nav {
 
 /* News-Feed */
 .news-feed-comp {
+  height: 100%;
   margin-top: 20px;
   display: inline-block;
   width: 450px;
@@ -280,7 +281,7 @@ nav {
 
 
 .countdown-body{
-  
+
   float:right;
   background: #041E42;
 font-family: sans-serif;
@@ -336,4 +337,3 @@ margin: 40px 0px 20px;
 	margin-right: -50 px
 
 }
-

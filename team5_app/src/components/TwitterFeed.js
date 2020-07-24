@@ -9,7 +9,7 @@ function TwitterFeed() {
           sourceType="profile"
           screenName="IndianaFever"
           theme="dark"
-          options={{width: 700}}
+          options={{width: 700, height: 800}}
         />
       </div>
     </div>
