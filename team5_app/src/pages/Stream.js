@@ -30,10 +30,15 @@ function Stream( props ) {
 	}
 
 	function changeRoom() {
+
         setRoom(oldRoom => (oldRoom === 'Standard') ? 'Premium' : 'Standard')
         setMessages([])
         setChatText('')
-	}
+        if (room === 'Standard') {
+            let message = { message: 'You have entered the Premium room', username: ' '}
+            setMessages([message])
+        }
+    }
 
     const postChat = (event) => {
         if (event.key === 'Enter') {

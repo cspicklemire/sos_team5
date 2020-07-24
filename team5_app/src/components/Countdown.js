@@ -47,7 +47,7 @@ function CountDown(props) {
        <span span classname = 'clockdiv-div-span' class="seconds" id="second">{seconds}</span>
        <div class='smalltext'>Seconds</div>
    </div>
-    <p id="demo" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Until next live broadcast!</p> 
+    <p id="demo" >  Until next live broadcast!</p> 
    </div>
  </>
 );

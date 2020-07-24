@@ -22,7 +22,9 @@ function Home() {
         <div className='home-flex-container'>
           <div className='home-flex-relative'>
             <div className='home-flex-content'>
-              <Video id='1' />
+              <a href="/#/sponsors">
+      			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src={ `/img/sponsors/salesforce.jpg` } width = '250' height = '250' alt="SalesForce" />
+      		  </a>
             </div>
           </div>
         </div>
@@ -30,7 +32,9 @@ function Home() {
         <div className='home-flex-container'>
           <div className='home-flex-relative'>
             <div className='home-flex-content'>
-              <Video id='1' />
+              <a href="/#/sponsors">
+      			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src={ `/img/sponsors/nike.jpg` } width = '250' height = '250' alt="Nike" />
+      		  </a>
             </div>
           </div>
         </div>
