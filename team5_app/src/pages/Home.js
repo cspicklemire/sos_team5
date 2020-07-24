@@ -54,7 +54,19 @@ function Home() {
             </div>
           </div>
         </div>
+        
+        <div className='home-flex-container'>
+          <div className='home-flex-relative'>
+            <div className='home-flex-content'>
+			  <a href="/#/sponsors">
+      			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src={ `/img/sponsors/atnt.jpg` } width = '250' height = '250' alt="At&t" />
+      		  </a>         
+      		 </div>   
+          </div>
+        </div>
+
       </div>
+      
       <Twitter />
     </div>
   );
