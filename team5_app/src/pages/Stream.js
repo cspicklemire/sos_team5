@@ -30,14 +30,9 @@ function Stream( props ) {
 	}
 
 	function changeRoom() {
-
         setRoom(oldRoom => (oldRoom === 'Standard') ? 'Premium' : 'Standard')
         setMessages([])
         setChatText('')
-        if (room === 'Standard') {
-            let message = { message: 'You have entered the Premium room', username: ' '}
-            setMessages([message])
-        }
 	}
 
     const postChat = (event) => {
@@ -74,7 +69,7 @@ function Stream( props ) {
             }
         }
         return count
-        
+
     }
 
 	useEffect(() => {
@@ -95,14 +90,14 @@ function Stream( props ) {
     if (props.status === 'Premium' && display === 'none') {
         setDisplay('inline')
     }
-    
+
     useEffect(() => {
-    
+
         function foo() {
             let toSet = findAngle(messages)
             setAngle(toSet)
         }
-    
+
         let theInterval = setInterval(foo, 1000/10)
         return (()=> clearInterval(theInterval))
     },[messages])
@@ -111,15 +106,14 @@ function Stream( props ) {
     <div className='stream-page'>
       <LoginPopup email = { props.email } loginFlag = { loginFlag } setLoginFlag = { setLoginFlag }/>
       <UsernamePopup username = { props.username } usernameFlag = { usernameFlag } setUsernameFlag = { setUsernameFlag } setUsername = { props.setUsername } />
-      <h1> { `Live Stream` }
-      </h1>
-      <Container> 
+      
+      <Container>
          <Row>
-            <Col> 
+            <Col>
                 <CountDown />
             </Col>
-            <Col sm = {7} > 
-                <DecibelMeter angle = { angle }/> 
+            <Col sm = {7} >
+                <DecibelMeter angle = { angle }/>
             </Col>
             <Col style = {{display : display}}>
                 <br />
@@ -131,7 +125,7 @@ function Stream( props ) {
             </Col>
           </Row>
         </Container>
-        
+
       <div className='video-page-wrapper stream-page-wrapper'>
         <div className='video-page-background video-page-hover'>
           <div className='video-page-background-2'>
@@ -160,7 +154,7 @@ function Stream( props ) {
                  />
         </div>
       </div>
-      
+
     </div>
   );
 }

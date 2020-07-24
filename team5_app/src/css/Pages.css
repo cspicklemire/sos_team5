@@ -207,3 +207,7 @@
   text-align: left;
   font-weight: bold;
 }
+
+.page-flex {
+  max-width: 100%;
+}
