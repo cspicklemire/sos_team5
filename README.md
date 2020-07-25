@@ -9,7 +9,6 @@ Socket.IO <br />
 Google OAuth-2 <br />
 AWS-Educate <br />
 SQLite<br />
-Images, videos, player stats:<br />
-Indiana Fever Website https://fever.wnba.com
+Images, videos, player stats: Indiana Fever Website https://fever.wnba.com
 <br /> 
 Twitter feed: https://twitter.com/indianafever
