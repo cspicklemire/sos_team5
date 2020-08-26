@@ -12,3 +12,5 @@ SQLite<br />
 Images, videos, player stats: Indiana Fever Website https://fever.wnba.com
 <br /> 
 Twitter feed: https://twitter.com/indianafever
+<br />
+Website demo: http://ec2-3-18-105-26.us-east-2.compute.amazonaws.com:5000/#/
